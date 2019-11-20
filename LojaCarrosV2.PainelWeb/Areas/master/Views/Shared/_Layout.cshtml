@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="shortcut icon" href="~/images/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  
+    @Styles.Render("~/Content/css")
+   
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/move-top")
+
+
+</head>
+<body style="padding-top:70px">
+    <div class="loading modal-backdrop fade in" id="loading">
+        <img src="~/images/loader_profile.gif" />
+    </div>
+
+    @Html.Partial("_Topo")
+
+    <div class="container-fluid main-container">
+        <div style="padding-left:2%">
+
+            @Html.Partial("_MenuLateral")
+
+            <div class="col-md-10 content">
+                @RenderBody()
+            </div>
+
+        </div>
+
+        @Html.Partial("_Rodape")
+
+    </div>
+   
+    
+
+    @Html.Partial("_Modal")
+   
+    @RenderSection("scripts", required: false)
+</body>
+</html>

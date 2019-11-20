@@ -1,0 +1,235 @@
+﻿@using LojaCarrosV2.Utilidade
+@model PagedList.IPagedList<LojaCarrosV2.Domain.Entidade.Veiculo>
+
+@{
+    ViewBag.Title = "Listar todos Veiculos";
+    Layout = "~/Areas/master/Views/Shared/_Layout.cshtml";
+
+}
+@{
+    int paginaCorrente = 1;
+
+    string queryString = Request.Url.GetLeftPart(UriPartial.Query);
+    string[] query = queryString.Split(new char[] { '?' });
+
+    if (ViewBag.paginaCorrente != null)
+    {
+        paginaCorrente = Convert.ToInt32(ViewBag.Pagina);
+    }
+}
+<link href="~/Content/StyleTables.css" rel="stylesheet" />
+
+<div class="panel panel-default">
+    <div class="panel-heading" style="min-height:50px">
+        <div class="form-group">
+            <label class="control-label col-md-10">
+                Listar
+                @if (ViewBag.Empresa != null)   
+                {
+                    @ViewBag.Empresa.Nome
+                }
+            </label>
+            <div class="col-md-2">
+                <a class="btn btn-success" href="@Url.Action("Cadastro", "Veiculos").ToLower()">Novo Veículo</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="panel-body">
+
+        <div class="form-group">
+
+            <label class="control-label col-md-4">Modelo ou Marca:</label>
+            <div class="col-md-8">
+                @using (@Html.BeginForm("Index", "veiculos", FormMethod.Get))
+                {
+                    string valor = "";
+                    if (!string.IsNullOrEmpty(Request.QueryString["q"]))
+                    {
+                        valor = Request.QueryString["q"].ToLower();
+                    }
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="q" id="q" placeholder="ex. fusca ou fiat" value="@valor">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                }
+                <div class="col-lg-6">
+                    <div class="btn-group">
+                        <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Itens por página @Model.Count <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = ViewBag.SortOrder, cs = ViewBag.CurrentSort, idEmpresa= ViewBag.idEmpresa, pt = 5 })">5</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = ViewBag.SortOrder, cs = ViewBag.CurrentSort, idEmpresa= ViewBag.idEmpresa,pt = 10 })">10</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = ViewBag.SortOrder, cs = ViewBag.CurrentSort, idEmpresa= ViewBag.idEmpresa,pt = 15 })">15</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = ViewBag.SortOrder, cs = ViewBag.CurrentSort, idEmpresa= ViewBag.idEmpresa, pt = 20 })">20</a></li>
+                        </ul>
+                    </div>
+                    @*<div class="btn-group">
+                            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Mostrar <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = ViewBag.SortOrder, cs = ViewBag.CurrentSort, mostrar = "ativos", pt = ViewBag.PaginaTamanho })">Ativos</a></li>
+                                <li><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = ViewBag.SortOrder, cs = ViewBag.CurrentSort, mostrar = "inativos", pt = ViewBag.PaginaTamanho })">Inativos</a></li>
+                                <li><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = ViewBag.SortOrder, cs = ViewBag.CurrentSort, mostrar = "todos", pt = ViewBag.PaginaTamanho })">Todos</a></li>
+
+                            </ul>
+                        </div>*@
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <hr />
+
+        <div class="method text-center">
+            <div class="row margin-0 list-header hidden-sm hidden-xs">
+                <div class="col-md-3"><div class="header">Foto</div></div>
+                <div class="col-md-4"><div class="header"><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = "modelo", cs = ViewBag.CurrentSort, pt = ViewBag.PaginaTamanho })">Modelo <span id="orderModelo"></span></a></div></div>
+                <div class="col-md-2"><div class="header"><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = "ano", cs = ViewBag.CurrentSort, pt = ViewBag.PaginaTamanho })">Ano / Modelo <span id="orderAno"></span></a></div></div>
+                <div class="col-md-1"><div class="header">Ativo</div></div>
+                <div class="col-md-2"><div class="header">Opções</div></div>
+                @*<a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, classe = ViewBag.Classe, marcas = ViewBag.Marcas, modelo = ViewBag.Modelo, ai = ViewBag.Ai, af = ViewBag.Af, pi = ViewBag.Pi, pf = ViewBag.Pf, ki = ViewBag.Ki, kf = ViewBag.Kf, pg = ViewBag.Pagina, so = "nome", cs = ViewBag.CurrentSort, pt = ViewBag.PaginaTamanho })">Nome</a>*@
+
+
+
+
+            </div>
+            @foreach (var item in Model)
+            {
+                <div class="row margin-0">
+                    <div class="col-md-3">
+                        <div class="cell">
+                            <div class="propertyname">
+
+                                @if (item.Ativo == true)
+                                { <a href="@item.Empresa.URL@item.Modelo.ToLower()-@item.IdVeiculo" target="_blank">
+                                    <img class="img-responsive fancybox imagem center-block" src="@ViewBag.Diretorio@item.Arquivo.Nome" alt="..." style="align-items:center">
+                                </a>}
+                                else {
+                                    <img class="img-responsive fancybox imagem center-block" src="@ViewBag.Diretorio@item.Arquivo.Nome" alt="..." style="align-items:center">
+                                }
+                                @string.Format("{0:c}", item.Valor)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="cell">
+                            <div class="propertyname">
+                                @item.Modelo.Replace("-", " ").ToUpper() <br />
+                                 
+                                <a href="@Url.Action("index", "veiculos",new { idEmpresa = item.IdEmpresa })" target="_blank" title="Veja o(s) veiculos de @item.Empresa.Nome.ToUpper()">
+                                    @item.Empresa.Nome.ToUpper()
+                                </a>
+
+
+                                    <br />
+                                    @if (item.Ativo == true)
+                                    { <a href="@item.Empresa.URL@item.Modelo.ToLower()-@item.IdVeiculo" target="_blank" class="label label-primary">ver no site</a>
+                                    @*<a href="@Url.Action("Detalhes", "veiculos", new { modelo = item.Modelo.ToLower(), id = item.IdVeiculo, area = "" })" target="_blank" class="label label-primary">ver no site</a>*@}
+                                    @if (DateTime.Now.Subtract(item.DataCadastro) <= TimeSpan.Parse("00:00:59.0000000"))
+                                    {<br /><label class="label label-success">NOVO</label>}
+
+</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="cell">
+                            <div class="propertyname">
+                                @item.AnoFabricacao / @item.AnoModelo
+                                @if (@item.QtdAcesso > 0)
+                                {
+                                    <br /><p>Visita(s)  @item.QtdAcesso</p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="cell">
+                            <div class="isrequired">
+                                <input type="checkbox" name="ckAtivo" value="true" @(item.Ativo ? "checked" : "") class="disabled" disabled="true" />
+                                @if (@item.Destaque.Equals(true))
+                                {
+                                    <br /><label class="label label-info">Destaque</label>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="cell">
+
+                            <div class="propertyname">
+
+
+                                @Html.ActionLinkDavi("<i class='fa fa-search'></i>", "Detalhes", "detalhes", "veiculos",
+                     voloresRota: new
+                     {
+                         id = item.IdVeiculo,
+                         p = paginaCorrente
+                     },
+                                atributosHtml: new { data_modal = "", @class = "btn btn-primary" })
+                                &nbsp;
+                                @Html.ActionLinkDavi("<i class='fa fa-pencil'></i>", "Editar", "editar", "veiculos",
+                        voloresRota: new
+                        {
+                            id = item.IdVeiculo,
+                            p = paginaCorrente
+                        },
+                        atributosHtml: new { data_modal = "", @class = "btn btn-default" })
+
+
+
+                                &nbsp;
+
+                                <a class="btn btn-danger lkbExcluir"
+                                   data-nome="@item.Modelo"
+                                   data-controller="@Url.Action("excluir", "veiculos", new {area="master", id = item.IdVeiculo })"
+                                   data-target="#myModalExcluir"
+                                   data-toggle="modal"
+                                   title="Excluir">
+                                    <i class="fa fa-trash-o"></i>
+                                </a>
+
+                                <br />
+                                <label class="label label-success">ID @item.IdVeiculo</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div class="row margin-0 list-header hidden-sm hidden-xs">
+            <div class="col-md-12">
+                <div class="footer">
+                    Total de itens por pagina:<span style="color:red">@Model.Count</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="panel-footer">
+        @using PagedList
+        @using PagedList.Mvc
+        @*<div class="text-center">
+                @Html.PagedListPager((IPagedList)Model, pagina => Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = pagina, so = ViewBag.SortOrder, cs = ViewBag.CurrentSort, pt = ViewBag.PaginaTamanho }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+            </div>*@
+        @Html.Partial("_Paginador")
+
+
+    </div>
+
+
+</div>
+@Html.Partial("_ModalExcluir")

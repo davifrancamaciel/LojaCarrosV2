@@ -1,0 +1,28 @@
+﻿@using LojaCarrosV2.Utilidade
+@model LojaCarrosV2.PainelWeb.Models.ClienteVM
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @ViewBag.Title Cliente
+    </div>
+    <div class="panel-body">
+
+        @Html.Partial("_FormCliente")
+
+    </div>
+</div>
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/scripts.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.js"></script>
+    <script>
+        $("#CEP").mask("99999-999");
+        $("#Telefone2").mask("(99) 9999-9999");
+        $("#Telefone1").mask("(99) 99999-9999");
+    </script>
+
+}

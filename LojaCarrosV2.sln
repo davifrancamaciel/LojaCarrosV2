@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaCarrosV2.Api", "LojaCarrosV2.Api\LojaCarrosV2.Api.csproj", "{25930BF3-F4C8-4CE9-A02C-41A8E7BFDF63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaCarrosV2.Domain", "LojaCarrosV2.Domain\LojaCarrosV2.Domain.csproj", "{A37EAB42-6429-4450-AE69-F951535B5BEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaCarrosV2.Infra", "LojaCarrosV2.Infra\LojaCarrosV2.Infra.csproj", "{1ABA7200-D287-4014-B056-06CBA9280F1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaCarrosV2.Utilidade", "LojaCarrosV2.Utilidade\LojaCarrosV2.Utilidade.csproj", "{C407797F-CA3B-44DC-95E5-5290849C31B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaCarrosV2.PainelWeb", "LojaCarrosV2.PainelWeb\LojaCarrosV2.PainelWeb.csproj", "{EBBCDC0A-35F4-4A4A-BBC0-7B2B2F1E6CAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaCarrosV2.Web", "LojaCarrosV2.Web\LojaCarrosV2.Web.csproj", "{D0627F76-A69A-40C1-AE9C-367108560B48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{25930BF3-F4C8-4CE9-A02C-41A8E7BFDF63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25930BF3-F4C8-4CE9-A02C-41A8E7BFDF63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25930BF3-F4C8-4CE9-A02C-41A8E7BFDF63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25930BF3-F4C8-4CE9-A02C-41A8E7BFDF63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A37EAB42-6429-4450-AE69-F951535B5BEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A37EAB42-6429-4450-AE69-F951535B5BEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A37EAB42-6429-4450-AE69-F951535B5BEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A37EAB42-6429-4450-AE69-F951535B5BEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ABA7200-D287-4014-B056-06CBA9280F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ABA7200-D287-4014-B056-06CBA9280F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ABA7200-D287-4014-B056-06CBA9280F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ABA7200-D287-4014-B056-06CBA9280F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C407797F-CA3B-44DC-95E5-5290849C31B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C407797F-CA3B-44DC-95E5-5290849C31B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C407797F-CA3B-44DC-95E5-5290849C31B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C407797F-CA3B-44DC-95E5-5290849C31B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBBCDC0A-35F4-4A4A-BBC0-7B2B2F1E6CAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBBCDC0A-35F4-4A4A-BBC0-7B2B2F1E6CAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBBCDC0A-35F4-4A4A-BBC0-7B2B2F1E6CAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBBCDC0A-35F4-4A4A-BBC0-7B2B2F1E6CAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0627F76-A69A-40C1-AE9C-367108560B48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0627F76-A69A-40C1-AE9C-367108560B48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0627F76-A69A-40C1-AE9C-367108560B48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0627F76-A69A-40C1-AE9C-367108560B48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://controleprocessos.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = LojaCarrosV2.Api\\LojaCarrosV2.Api.csproj
+		SccProjectName1 = LojaCarrosV2.Api
+		SccLocalPath1 = LojaCarrosV2.Api
+		SccProjectUniqueName2 = LojaCarrosV2.Domain\\LojaCarrosV2.Domain.csproj
+		SccProjectName2 = LojaCarrosV2.Domain
+		SccLocalPath2 = LojaCarrosV2.Domain
+		SccProjectUniqueName3 = LojaCarrosV2.Infra\\LojaCarrosV2.Infra.csproj
+		SccProjectName3 = LojaCarrosV2.Infra
+		SccLocalPath3 = LojaCarrosV2.Infra
+		SccProjectUniqueName4 = LojaCarrosV2.PainelWeb\\LojaCarrosV2.PainelWeb.csproj
+		SccProjectName4 = LojaCarrosV2.PainelWeb
+		SccLocalPath4 = LojaCarrosV2.PainelWeb
+		SccProjectUniqueName5 = LojaCarrosV2.Utilidade\\LojaCarrosV2.Utilidade.csproj
+		SccProjectName5 = LojaCarrosV2.Utilidade
+		SccLocalPath5 = LojaCarrosV2.Utilidade
+		SccProjectUniqueName6 = LojaCarrosV2.Web\\LojaCarrosV2.Web.csproj
+		SccProjectName6 = LojaCarrosV2.Web
+		SccLocalPath6 = LojaCarrosV2.Web
+	EndGlobalSection
+EndGlobal

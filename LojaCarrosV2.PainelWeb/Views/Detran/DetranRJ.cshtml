@@ -1,0 +1,60 @@
+﻿<div class="form-horizontal dados">
+
+  
+    <div class="form-group">
+        <label class="control-label col-md-2">Data da consulta</label>
+        <div class="col-md-8">
+            <input type="text" id="DataConsulta-input" disabled value="" class="form-control caixa-grande" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Quantidade de multas encontradas</label>
+        <div class="col-md-8">
+            <input type="text" id="QtdMultas-input" disabled value="" class="form-control caixa-grande" />
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div id="resultado"></div>
+</div>
+
+
+<div class="modal fade" id="buscar-modal" tabindex="-1" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Buscar NADA CONSTA</h4>
+            </div>
+            <div class="modal-body" style="height:250px;">
+                <p>Preencha com o texto da imagem</p>
+                <br />
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Texto</label>
+                        <div class="col-md-5">
+                            <input type="text" id="img-input" value="" class="form-control caixa-grande" />
+                        </div>
+                    </div>
+                    <div class="form-group img-captcha">
+                        <div class="col-md-offset-2 col-md-6">
+                            <div style="float:left;">
+                                <img id="captcha-img" title="Informe o texto da imagem" class="hidden" />
+                            </div>
+                            <div style="float:right;">
+                                <a href="#" id="buscar-captcha-btn" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-refresh"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="height:80px;">
+                <p class="bg-danger pull-left hidden msg" style="padding:10px 20px;">
+                    <i class="glyphicon glyphicon-warning-sign"></i>&nbsp;<strong><span id="msgErro-span"></span></strong>
+                </p>
+                <button type="button" id="fechar-button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" id="buscarDados-btn" class="btn btn-primary">Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\DAVI\Documents\_Projetos\lojacarrosV2\Api</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="apa/dirPagination.js">
+      <publishTime>01/15/2016 19:07:32</publishTime>
+    </File>
+    <File Include="apa/dirPagination.tpl.html">
+      <publishTime>01/15/2016 19:07:31</publishTime>
+    </File>
+    <File Include="apa/Index.html">
+      <publishTime>01/15/2016 19:08:04</publishTime>
+    </File>
+    <File Include="apa/script.js">
+      <publishTime>01/15/2016 19:05:10</publishTime>
+    </File>
+    <File Include="apa/style.css">
+      <publishTime>01/15/2016 19:05:13</publishTime>
+    </File>
+    <File Include="app/css/bootstrap.min.css">
+      <publishTime>01/04/2016 21:21:22</publishTime>
+    </File>
+    <File Include="app/css/site.css">
+      <publishTime>01/06/2016 13:58:44</publishTime>
+    </File>
+    <File Include="app/Index.html">
+      <publishTime>01/06/2016 21:03:27</publishTime>
+    </File>
+    <File Include="app/js/app.js">
+      <publishTime>01/06/2016 17:07:59</publishTime>
+    </File>
+    <File Include="app/js/configuration/routeConfig.js">
+      <publishTime>01/06/2016 21:26:22</publishTime>
+    </File>
+    <File Include="app/js/controllers/detalhesContatoColtroller.js">
+      <publishTime>01/06/2016 21:22:52</publishTime>
+    </File>
+    <File Include="app/js/controllers/ListaTelefonicaController.js">
+      <publishTime>01/06/2016 20:42:55</publishTime>
+    </File>
+    <File Include="app/js/controllers/novoContatoController.js">
+      <publishTime>01/06/2016 20:37:44</publishTime>
+    </File>
+    <File Include="app/js/diretives/uiAlertDirective.js">
+      <publishTime>01/06/2016 12:04:51</publishTime>
+    </File>
+    <File Include="app/js/diretives/uiDateDirective.js">
+      <publishTime>01/06/2016 13:10:55</publishTime>
+    </File>
+    <File Include="app/js/filters/ellipsisFilter.js">
+      <publishTime>01/05/2016 16:47:43</publishTime>
+    </File>
+    <File Include="app/js/filters/nameFilter.js">
+      <publishTime>01/05/2016 16:03:50</publishTime>
+    </File>
+    <File Include="app/js/services/contatosAPIService.js">
+      <publishTime>01/06/2016 21:14:23</publishTime>
+    </File>
+    <File Include="app/js/services/operadorasAPIService.js">
+      <publishTime>01/07/2016 20:07:41</publishTime>
+    </File>
+    <File Include="app/js/value/configValue.js">
+      <publishTime>01/05/2016 13:09:28</publishTime>
+    </File>
+    <File Include="app/lib/angular/angular-locale_fr-fr.js">
+      <publishTime>01/04/2016 21:21:22</publishTime>
+    </File>
+    <File Include="app/lib/angular/angular-locale_pt-br.js">
+      <publishTime>01/04/2016 21:21:22</publishTime>
+    </File>
+    <File Include="app/lib/angular/angular-messages.js">
+      <publishTime>01/04/2016 21:21:22</publishTime>
+    </File>
+    <File Include="app/lib/angular/angular.js">
+      <publishTime>01/04/2016 21:21:22</publishTime>
+    </File>
+    <File Include="app/lib/bootstrap/bootstrap.min.js">
+      <publishTime>01/04/2016 21:21:22</publishTime>
+    </File>
+    <File Include="app/lib/jquery/jquery-1.11.1.min.js">
+      <publishTime>01/04/2016 21:21:22</publishTime>
+    </File>
+    <File Include="app/lib/ui/ui.js">
+      <publishTime>01/06/2016 16:55:57</publishTime>
+    </File>
+    <File Include="app/views/accordion.html">
+      <publishTime>01/06/2016 17:00:58</publishTime>
+    </File>
+    <File Include="app/views/alert.html">
+      <publishTime>01/06/2016 12:06:06</publishTime>
+    </File>
+    <File Include="app/views/contatos.html">
+      <publishTime>01/06/2016 20:58:05</publishTime>
+    </File>
+    <File Include="app/views/detalhesContato.html">
+      <publishTime>01/06/2016 21:51:02</publishTime>
+    </File>
+    <File Include="app/views/index.html">
+      <publishTime>01/04/2016 21:21:22</publishTime>
+    </File>
+    <File Include="app/views/novoContato.html">
+      <publishTime>05/09/2016 21:47:26</publishTime>
+    </File>
+    <File Include="app/views/Rodape.html">
+      <publishTime>01/04/2016 21:21:22</publishTime>
+    </File>
+    <File Include="appAuto/css/bootstrap.min.css">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/css/rzslider.css">
+      <publishTime>01/15/2016 11:27:53</publishTime>
+    </File>
+    <File Include="appAuto/css/Site.css">
+      <publishTime>01/13/2016 23:42:19</publishTime>
+    </File>
+    <File Include="appAuto/dirPagination.tpl.html">
+      <publishTime>01/15/2016 19:31:11</publishTime>
+    </File>
+    <File Include="appAuto/images/a1.jpg">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/ajax-loader-facebook.gif">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/ajax-loader.gif">
+      <publishTime>01/26/2016 17:22:48</publishTime>
+    </File>
+    <File Include="appAuto/images/arrow_up.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/banner.jpg">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/banner1.jpg">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/banner2.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/bmw.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/chevrolet_hover.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/citroen.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/co.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/favicon.ico">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/fiat.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/ford.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/hd.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/i0.jpg">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/i1.jpg">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/i2.jpg">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/i3.jpg">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/i4.jpg">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/i5.jpg">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/icons.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/kia.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/land.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/logo.gif">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/logo5.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/mit.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/nav.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/nisan.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/perfil.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/peugeot.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/pic12.jpg">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/revistag.jpg">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/revistap.jpg">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/revistap2.jpg">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/rn.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/sobre.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/toy.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/Volkswagen.png">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/images/_semfoto.jpg">
+      <publishTime>01/11/2016 23:07:22</publishTime>
+    </File>
+    <File Include="appAuto/index.html">
+      <publishTime>01/15/2016 19:25:04</publishTime>
+    </File>
+    <File Include="appAuto/js/app.js">
+      <publishTime>01/15/2016 19:25:31</publishTime>
+    </File>
+    <File Include="appAuto/js/configuration/routeConfig.js">
+      <publishTime>12/01/2016 23:20:39</publishTime>
+    </File>
+    <File Include="appAuto/js/controllers/marcaController.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/js/controllers/tipoController.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/js/controllers/veiculoController.js">
+      <publishTime>01/26/2016 18:04:27</publishTime>
+    </File>
+    <File Include="appAuto/js/diretives/rzslider.min.js">
+      <publishTime>01/15/2016 11:25:31</publishTime>
+    </File>
+    <File Include="appAuto/js/diretives/ui-bootstrap-tpls.js">
+      <publishTime>01/15/2016 11:25:52</publishTime>
+    </File>
+    <File Include="appAuto/js/lib/angular/angular-locale_fr-fr.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/js/lib/angular/angular-locale_pt-br.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/js/lib/angular/angular-messages.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/js/lib/angular/angular-route.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/js/lib/angular/angular.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/js/lib/bootstrap/bootstrap.min.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/js/lib/jquery/easing.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/js/lib/jquery/jquery-1.11.1.min.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/js/lib/jquery/move-top.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/js/lib/ui/ui.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/js/particular/easyResponsiveTabs.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/js/particular/filtrosHome.js">
+      <publishTime>01/13/2016 12:40:21</publishTime>
+    </File>
+    <File Include="appAuto/js/particular/responsiveslides.min.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/js/particular/scripts.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/js/services/marcasAPIService.js">
+      <publishTime>01/26/2016 18:06:53</publishTime>
+    </File>
+    <File Include="appAuto/js/services/tiposAPIService.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/js/services/veiculosAPIService.js">
+      <publishTime>12/01/2016 23:08:51</publishTime>
+    </File>
+    <File Include="appAuto/js/value/configValue.js">
+      <publishTime>12/01/2016 23:10:10</publishTime>
+    </File>
+    <File Include="appAuto/lib/angular/angular-locale_fr-fr.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/lib/angular/angular-locale_pt-br.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/lib/angular/angular-messages.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/lib/angular/angular.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/lib/bootstrap/bootstrap.min.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/lib/bootstrap/ui-bootstrap-tpls-1.0.3.min.js">
+      <publishTime>01/12/2016 23:21:41</publishTime>
+    </File>
+    <File Include="appAuto/lib/jquery/jquery-1.11.1.min.js">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/views/home/Contato.html">
+      <publishTime>01/12/2016 00:58:34</publishTime>
+    </File>
+    <File Include="appAuto/views/home/Home.html">
+      <publishTime>12/01/2016 23:21:46</publishTime>
+    </File>
+    <File Include="appAuto/views/home/Sobre.html">
+      <publishTime>01/11/2016 23:42:25</publishTime>
+    </File>
+    <File Include="appAuto/views/shared/Filtros.html">
+      <publishTime>01/15/2016 11:23:21</publishTime>
+    </File>
+    <File Include="appAuto/views/shared/Rodape.html">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/views/shared/Topo.html">
+      <publishTime>01/11/2016 23:07:23</publishTime>
+    </File>
+    <File Include="appAuto/views/veiculos/Detalhes.html">
+      <publishTime>12/01/2016 23:22:21</publishTime>
+    </File>
+    <File Include="appAuto/views/veiculos/Veiculos.html">
+      <publishTime>12/01/2016 23:22:03</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>10/11/2015 20:45:41</publishTime>
+    </File>
+    <File Include="bin/LojaCarrosV2.Api.dll">
+      <publishTime>12/05/2016 11:04:29</publishTime>
+    </File>
+    <File Include="bin/LojaCarrosV2.Domain.dll">
+      <publishTime>12/05/2016 11:03:33</publishTime>
+    </File>
+    <File Include="bin/LojaCarrosV2.Infra.dll">
+      <publishTime>12/05/2016 11:03:34</publishTime>
+    </File>
+    <File Include="bin/LojaCarrosV2.Utilidade.dll">
+      <publishTime>11/02/2016 11:42:05</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>10/11/2015 20:45:39</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>10/02/2015 17:05:26</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>10/11/2015 20:45:49</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>12/18/2015 11:50:07</publishTime>
+    </File>
+    <File Include="bin/System.Web.Cors.dll">
+      <publishTime>12/18/2015 11:50:07</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>12/18/2015 11:50:42</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.Cors.dll">
+      <publishTime>12/18/2015 11:50:07</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>12/18/2015 11:50:07</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>12/18/2015 11:50:45</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>12/18/2015 11:50:43</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>10/11/2015 20:45:36</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>12/18/2015 11:50:42</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>12/18/2015 11:50:42</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>12/18/2015 11:50:42</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>12/18/2015 11:50:42</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>10/11/2015 20:45:42</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>12/18/2015 11:46:34</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>12/18/2015 11:50:48</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>04/19/2016 13:17:01</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.11.1.min.js">
+      <publishTime>04/19/2016 13:17:01</publishTime>
+    </File>
+    <File Include="Scripts/olx.js">
+      <publishTime>04/19/2016 13:17:01</publishTime>
+    </File>
+    <File Include="Scripts/olx_oauth_secrets.json">
+      <publishTime>04/19/2016 13:19:57</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>12/05/2016 11:04:33</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

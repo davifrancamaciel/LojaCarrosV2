@@ -1,0 +1,288 @@
+﻿
+
+<div class="about_top">
+
+    <div class="slider" style="margin-bottom:10px">
+        <div class="callbacks_container">
+            <ul class="rslides" id="slider">
+                <li>
+                    <img src="images/banner.jpg" class="img-responsive" alt="" />
+                    <div class="banner_desc">
+                        <div class="container">
+                            <h1>Sua Melhor Opção na Região Serrana.</h1>
+                            <h2>Venha nos fazer uma visita.</h2>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <img src="images/banner2.png" class="img-responsive" alt="" />
+                    <div class="banner_desc">
+                        <div class="container">
+                            <h1>Sua Melhor Opção na Região Serrana.</h1>
+                            <h2>Venha nos fazer uma visita.</h2>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- <li>
+                    <img src="images/banner2.jpg" class="img-responsive" alt="" />
+                    <div class="banner_desc">
+                        <div class="container">
+                            <h1>Est notare quam littera gothica, quam nunc.</h1>
+                            <h2>At wisi enim ad minim veniam, quis nostrud.</h2>
+                        </div>
+                    </div>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+
+    <div ng-include="'views/shared/Filtros.html'"></div>
+
+</div>
+<div class="content_top">
+    <div class="container">
+        <div id="loading">
+            <h3>Loading...</h3>
+            <img src="images/ajax-loader-facebook.gif" />
+        </div>
+        <h4 class="m_3">Destaques</h4>
+        <div class="grid_1">
+
+
+            <div ng-repeat="veiculo in veiculos.destaques">
+                <div class="col-md-3 box_1">
+                    <a href="#/{{veiculo.modelo | lowercase }}-{{veiculo.idVeiculo}}">
+                        <img class="img-responsive" ng-src="{{diretorio}}{{veiculo.arquivo.nome}}" alt="{{veiculo.modelo}}">
+                    </a>
+                    <div class="box_2">
+                        <div class="special-wrap"><!--@*<div class="hot_offer"><span class="m_11">Hot Offer</span></div>*@--><div class="forclosure"><span class="m_12">Oferta especial</span></div></div>
+                    </div>
+                    <div class="box_3">
+                        <h3>
+                            <a href="#/detalhes/{{veiculo.idVeiculo}}">
+                                <p class="textoResponsivo"> {{veiculo.modelo}}</p>
+                            </a>
+                        </h3>
+                        <div class="boxed_mini_details clearfix">
+                            <!--@if (@item.Valor != 0)
+                            {-->
+                            <span class="area first textoResponsivo">
+                                <strong>Valor</strong>{{veiculo.valor}}, 00
+                            </span>
+                            <!--}
+                            else
+                            {<span class="area first textoResponsivo">
+                                <strong>Valor</strong>A Negociar
+                            </span>}-->
+                            <span class="status">
+                                <strong>Ano</strong>{{veiculo.anoFabricacao}}
+                            </span>
+                            <span class="bedrooms last">
+                                <strong>Modelo</strong>{{veiculo.anoModelo}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="clearfix"> </div>
+        </div>
+        <div class="content_bottom">
+            <div class="col-md-2">
+                <!--@if (ViewBag.MarcaCarro.Count != 0)-->
+
+                <div class="widget">
+                    <div class="title"><h3><i class="fa fa-car men"></i>Carros</h3></div>
+                    <ul class="real-widget">
+
+                        <li ng-repeat="item in veiculos.marcaCarro">
+                            <a href="#/{{item.nome}}/{{item.idVeiculo}}">{{item.nome}} ({{item.qtdVeiculo}})</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!-- @if (ViewBag.MarcaMoto.Count != 0)-->
+                 
+                 <div class="widget">
+                     <div class="title"><h3><i class="fa fa-motorcycle men"></i>Motos</h3></div>
+                     <ul class="real-widget">
+
+                         <li ng-repeat="item in veiculos.marcaMoto">
+                             <a href="#/{{item.nome}}/{{item.idVeiculo}}">{{item.nome}} ({{item.qtdVeiculo}})</a>
+                         </li>
+                     </ul>
+                 </div>
+                 
+            </div>
+            <div class="col-md-7">
+                <div class="sap_tabs">
+                    <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                        <div class="tab_grid">
+                            <ul class="resp-tabs-list">
+                                <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Veja</span></li>
+                                <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Algumas</span></li>
+                                <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>Marcas</span></li>
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                        <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+                            <ul class="tab_img tab_1">
+                                <li>
+                                    <div class="client_box1">
+                                        <img src="images/citroen.png" class="img-responsive" alt="" />
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="client_box1">
+                                        <img src="images/land.png" class="img-responsive" alt="" />
+                                    </div>
+                                </li>
+                                <li class="last">
+                                    <div class="client_box1">
+                                        <img src="images/bmw.png" class="img-responsive" alt="" />
+                                    </div>
+                                </li>
+                                <div class="clearfix"></div>
+                            </ul>
+                            <ul class="tab_img">
+                                <li>
+                                    <div class="client_box1">
+                                        <img src="images/mit.png" class="img-responsive" alt="" />
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="client_box1">
+                                        <img src="images/hd.png" class="img-responsive" alt="" />
+                                    </div>
+                                </li>
+                                <li class="last">
+                                    <div class="client_box1">
+                                        <img src="images/nisan.png" class="img-responsive" alt="" />
+                                    </div>
+                                </li>
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                        <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+
+                            <ul class="tab_img row">
+                                <li>
+                                    <div class="client_box1">
+                                        <img src="images/fiat.png" class="img-responsive" alt="" />
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="client_box1">
+                                        <img src="images/toy.png" class="img-responsive" alt="" />
+                                    </div>
+                                </li>
+                                <li class="last">
+                                    <div class="client_box1">
+                                        <img src="images/rn.png" class="img-responsive" alt="" />
+                                    </div>
+                                </li>
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                        <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
+                            <ul class="tab_img">
+                                <li>
+                                    <div class="client_box1">
+                                        <img src="images/peugeot.png" class="img-responsive" alt="" />
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="client_box1">
+                                        <img src="images/Volkswagen.png" class="img-responsive" alt="" />
+                                    </div>
+                                </li>
+                                <li class="last">
+                                    <div class="client_box1">
+                                        <img src="images/ford.png" class="img-responsive" alt="" />
+                                    </div>
+                                </li>
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="blog_list2">
+                    <h3>Equipe</h3>
+                    <ul class="blog-list3 list_1">
+                        <li class="blog-list3-img"><img src="images/perfil.png" class="img-responsive" alt="" /></li>
+                        <li class="blog-list3-desc">
+                            <h4><a href="#">Carlos Enrique Lima</a></h4>
+                            <ul class="admin_desc">
+                                <li class="list_top">
+                                    <i class="fa fa-phone-square ph"> </i>
+                                    <p class="m_2">(24) 99301-8374</p>
+                                </li>
+                                <div class="clearfix"> </div>
+                                <li class="list_top">
+                                    <i class="fa fa-envelope ph"> </i>
+                                    <p class="m_2 textoResponsivo"><a href="malito:contato@enriqueautomoveis.com.br">contato@enriqueautomoveis.com.br</a></p>
+                                </li>
+                                <div class="clearfix"> </div>
+                            </ul>
+                        </li>
+                        <div class="clearfix"> </div>
+                    </ul>
+                    <!--@*<ul class="blog-list3 list_1">
+                        <li class="blog-list3-img"><img src="images/pic12.jpg" class="img-responsive" alt="" /></li>
+                        <li class="blog-list3-desc">
+                            <h4><a href="#">Joazinho da silva</a></h4>
+                            <ul class="admin_desc">
+                                <li class="list_top">
+                                    <i class="fa fa-phone-square ph"> </i>
+                                    <p class="m_2">(24) 2221-3544</p>
+                                </li>
+                                <div class="clearfix"> </div>
+                                <li class="list_top">
+                                    <i class="fa fa-envelope ph"> </i>
+                                    <p class="m_2 textoResponsivo"><a href="malito:contato@enriqueautomoveis.com.br">contato@enriqueautomoveis.com.br</a></p>
+                                </li>
+                                <div class="clearfix"> </div>
+                            </ul>
+                        </li>
+                        <div class="clearfix"> </div>
+                    </ul>
+                    <ul class="blog-list3">
+                        <li class="blog-list3-img"><img src="images/pic12.jpg" class="img-responsive" alt="" /></li>
+                        <li class="blog-list3-desc">
+                            <h4><a href="#">Pedrinho</a></h4>
+                            <ul class="admin_desc">
+                                <li class="list_top">
+                                    <i class="fa fa-phone-square ph"> </i>
+                                    <p class="m_2">(24) 99301-8374</p>
+                                </li>
+                                <div class="clearfix"> </div>
+                                <li class="list_top">
+                                    <i class="fa fa-envelope ph"> </i>
+                                    <p class="m_2 textoResponsivo"><a href="malito:contato@enriqueautomoveis.com.br">contato@enriqueautomoveis.com.br</a></p>
+                                </li>
+                                <div class="clearfix"> </div>
+                            </ul>
+                        </li>
+                        <div class="clearfix"> </div>
+                    </ul>*@-->
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+
+        <!--rodape-->
+        <div ng-include="'views/shared/Rodape.html'"></div>
+
+        <!--rodape-->
+    </div>
+</div>
+
+
+

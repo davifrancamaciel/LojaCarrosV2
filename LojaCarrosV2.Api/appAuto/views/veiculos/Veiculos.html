@@ -1,0 +1,100 @@
+﻿
+<div class="about_top">
+
+    <div ng-include="'views/shared/Filtros.html'"></div>
+
+
+    {{loading}}
+    <img ng-src="images/ajax-loader-facebook.gif" ng-show="loading" />
+    <img ng-src="images/ajax-loader.gif" ng-show="loading" />
+
+    <div class="col-md-12">
+        <div class="col-md-3">
+            <input type="text" ng-model="busca" class="form-control" placeholder="Buscar..." />
+            <!--<input type="text" ng-model="busca1" class="form-control" placeholder="Buscar..." />-->
+        </div>
+        <div class="col-md-3">
+            <select ng-model="ordenacao" ng-change="ordenarPor(ordenacao)" class="form-control">
+                <option value=""> Ordenar por... </option>
+                <option value="modelo">Nome</option>
+                <option value="valor">Valor</option>
+                <option value="marca.nome">Marca</option>
+                <option value="anoFabricacao">Ano</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <article>
+                <rzslider rz-slider-model="minRangeSlider.minValue"
+                          rz-slider-high="minRangeSlider.maxValue"
+                          rz-slider-options="minRangeSlider.options"></rzslider>
+            </article>
+        </div>
+    </div>
+   
+
+
+    
+    
+  
+
+    <div class="container">
+        <div class="about">
+            <div>
+                <div id="loading">
+                    <h3>Loading...</h3>
+                    <img src="images/ajax-loader-facebook.gif" />
+                </div>
+
+
+                <div class="row">
+                    <div>
+                        <!--<small>this is in "OtherController"</small>-->
+                        <div class="text-center">
+                            <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
+                        </div>
+                    </div>
+
+                    <div dir-paginate="veiculo in veiculos | valorRange :minRangeSlider.minValue:minRangeSlider.maxValue | filter:busca | orderBy : ordenacao: false | itemsPerPage: pageSize" current-page="currentPage">
+
+
+                        <a href="#/{{veiculo.modelo | lowercase }}-{{veiculo.idVeiculo}}">
+                            <div class="col-md-3 service_box box">
+                                <img class="img-responsive fancybox" ng-src="{{diretorio}}{{veiculo.arquivo.nome}}" imageonload alt="...">
+                                <p>{{veiculo.marca.nome}}</p>
+                                <h4 class="textoResponsivo" style="margin-bottom:15px">{{veiculo.modelo}}</h4>
+                                <h4>{{veiculo.anoFabricacao}}/{{veiculo.anoModelo}}</h4>
+                                <!--@if (@item.Valor != 0)
+                {-->
+                                <p>{{veiculo.valor | currency}} {{veiculo.combustivel.nome}}</p>
+                                <!--}
+                else
+                { <p class="textoResponsivo"> Valor A Negociar  @item.Combustivel.Nome</p>}-->
+
+
+
+                            </div>
+                        </a>
+                    </div>
+                    <div class="clearfix"> </div>
+
+                    <!--<div ng-controller="OtherController" class="other-controller">-->
+                    <div>
+                        <!--<small>this is in "OtherController"</small>-->
+                        <div class="text-center">
+                            <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div ng-include="'views/shared/Rodape.html'"></div>
+    </div>
+</div>
+
+
+
+
+
+

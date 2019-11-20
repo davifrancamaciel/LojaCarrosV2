@@ -1,0 +1,89 @@
+﻿@model PagedList.IPagedList<LojaCarrosV2.Domain.Entidade.Veiculo>
+
+
+@{
+    ViewBag.Title = "Veiculos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="about_top">
+    @Html.Partial("_Filtros")
+
+
+    <div class="container">
+        <div class="about">
+            <div>
+                <div id="loading">
+                    <h3>Loading...</h3>
+                    <img src="~/images/ajax-loader-facebook.gif" />
+                </div>
+
+                <div class="row">
+
+                    @foreach (var item in Model)
+                    {
+                        <a href="@Url.Action("Detalhes", "veiculos", new { modelo = item.Modelo.ToLower().Replace(" ", "-"), id = item.IdVeiculo })">
+                            <div class="col-md-3 service_box box">
+                                <img class="img-responsive fancybox" src="@ViewBag.DiretorioMin@item.Arquivo.Nome" alt="@item.Modelo.ToLower()">
+                                <p>@item.Marca.Nome</p>
+                                <h4 class="textoResponsivo" style="margin-bottom:15px"> @item.Modelo.ToUpper().Replace("-", " ")</h4>
+                                <h4>@item.AnoFabricacao/@item.AnoModelo</h4>
+                                @if (@item.Valor != 0 && item.ExibeValor == true)
+                                {
+                                    <p> R$ @item.Valor,00  @item.Combustivel.Nome</p>
+                                }
+                                else
+                                { <p class="textoResponsivo"> Valor A Negociar  @item.Combustivel.Nome</p>}
+
+                                @*<div style="display:none">
+                                        <div id="fb-root"></div>
+                                        <script>
+
+                                            (function (d, s, id) {
+                                                var js, fjs = d.getElementsByTagName(s)[0];
+                                                if (d.getElementById(id)) return;
+                                                js = d.createElement(s); js.id = id;
+                                                js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5&appId=1570988313168798";
+                                                fjs.parentNode.insertBefore(js, fjs);
+                                            }(document, 'script', 'facebook-jssdk'));</script>
+                                        <div class="fb-share-button" data-href="http://www.enriqueautomoveis.com.br/@item.Modelo-@item.IdVeiculo" data-layout=" button"></div>
+                                    </div>*@
+
+                            </div>
+                        </a>
+                    }
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+
+            @Html.Partial("_Paginador")
+
+
+        </div>
+        @Html.Partial("_Rodape")
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/filtrosHome.js"></script>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

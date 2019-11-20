@@ -1,0 +1,158 @@
+﻿@model LojaCarrosV2.Domain.Entidade.Veiculo
+@{
+    ViewBag.Title = Model.Marca.Nome.ToUpper() + " " + Model.Modelo.ToUpper().Replace("-", " ") + " " + Model.AnoFabricacao;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="about_top">
+    <div class="container">
+        <div class=" standards about">
+
+            <style>
+                .carousel-inner > .item > img,
+                .carousel-inner > .item > a > img {
+                    width: 100%;
+                    margin: auto;
+                }
+            </style>
+
+
+            <div class="row">
+                <div class="col-md-7">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+
+                            @{int i = 0;}
+                            @foreach (var item in ViewBag.Arquivos)
+                            {
+                                <li data-target="#myCarousel" data-slide-to="@i"></li>
+                                i = i + 1;
+                            }
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            @if (ViewBag.Arquivos.Count == 0)
+                            {
+                                string semFoto = "_semfoto.jpg";
+                                <div class="item active">
+                                    <img class="img-responsive" src="@ViewBag.Diretorio@semFoto">
+                                </div>
+                            }
+                            else
+                            {
+                                string active = "active";
+                                foreach (var item in ViewBag.Arquivos)
+                                {
+                                    <div class="item @active">
+                                        <img class="img-responsive" src="@ViewBag.Diretorio@item.Nome" alt='@ViewBag.Title'>
+                                    </div>
+                                    active = "";
+                                }
+                            }
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-5 text-center">
+                    <div class="panel panel-danger panel-pricing">
+                        <div class="panel-heading">
+                            <i class="fa fa-car"></i>
+                            <h3>Descricao</h3>
+                        </div>
+                        <div class="panel-body text-center">
+                            <p>@Model.Descricao</p>
+                        </div>
+                        @*<ul class="list-group text-center">
+                                <li class="list-group-item"><i class="fa fa-check"></i> @Model.Combustivel.Nome</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Unlimited projects</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> 27/7 support</li>
+                            </ul>*@
+                        <div class="panel-footer">
+                            <a class="btn btn-lg btn-block btn-danger" href="@Url.Action("index", "contato", new { assunto = @ViewBag.title.ToLower().Replace(' ', '-')+"-id-"+@Model.IdVeiculo })">Envie sua proposta!</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <label><h2> @ViewBag.Title</h2></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 single_box1">
+                <ul class="single_box">
+                    @if (@Model.Valor != 0 && Model.ExibeValor == true)
+                    {
+                        <li><i class="fa fa-money"> </i> @string.Format("{0:c}", Model.Valor)</li>
+                    }
+                    else
+                    {
+                        <li><label class="label label-success">Valor a Negociar</label></li>
+                    }
+
+                    <li><i class="fa fa-check"> </i> @Model.AnoFabricacao</li>
+                    <li><i class="fa fa-check"> </i> @Model.AnoModelo</li>
+                    <li><i class="fa fa-check"></i> @Model.Combustivel.Nome</li>
+                    <li><label class="label label-success">ID @Model.IdVeiculo</label></li>
+                    <li style="display:none">
+                        <div id="fb-root"></div>
+                        <script>
+
+                            (function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js = d.createElement(s); js.id = id;
+                                js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5&appId=1570988313168798";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
+                        <div class="fb-share-button" data-href="http://www.enriqueautomoveis.com.br/@Model.Modelo-@Model.IdVeiculo" data-layout=" button"></div>
+
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+
+        <div class="about_grid2">
+            <h3>Outras ofertas</h3>
+
+
+            @foreach (var item in ViewBag.Popular)
+            {
+                <a href="@Url.Action("Detalhes", "veiculos", new { modelo = item.Modelo.ToLower(), id= item.IdVeiculo})">
+                    <div class="col-md-3 about_box2">
+                        <img class="img-responsive" src="@ViewBag.DiretorioMin@item.Arquivo.Nome" alt="...">
+
+                        <h3 class="textoResponsivo">@item.Modelo.ToUpper().Replace("-", " ") </h3>
+                        @if (@item.Valor != 0 && item.ExibeValor == true)
+                        { <p>@string.Format("{0:c}", item.Valor, 00)</p>}
+                        else
+                        { <p>Valor a Negociar</p>}
+
+                        <p> @item.Combustivel.Nome</p>
+                    </div>
+                </a>
+            }
+
+            <div class="clearfix"> </div>
+        </div>
+
+        @Html.Partial("_Rodape")
+    </div>
+</div>

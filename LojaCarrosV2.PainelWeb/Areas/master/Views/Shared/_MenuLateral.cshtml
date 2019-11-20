@@ -1,0 +1,23 @@
+﻿<div class="col-md-2 sidebar">
+    <div class="row">
+        <!-- uncomment code for absolute positioning tweek see top comment in css -->
+        <div class="absolute-wrapper"> </div>
+        <!-- Menu -->
+        <div class="side-menu">
+            <nav class="navbar navbar-default" role="navigation">
+                <!-- Main Menu -->
+                <div class="side-menu-container">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="@Url.Action("Index", "Veiculos").ToLower()"><i class="fa fa-car"></i>&nbsp; Veículos</a></li>
+                        <li><a href="@Url.Action("Cadastro", "Veiculos").ToLower()"><i class="fa fa-plus"></i>&nbsp;Novo Veículo</a></li>
+                        <li><a href="@Url.Action("Index", "Marca").ToLower()"><i class="fa fa-list"></i>&nbsp;Marcas</a></li>
+                        <li><a href="@Url.Action("Index", "Usuario").ToLower()"><i class="fa fa-users"></i>&nbsp;Usuarios</a></li>
+                        <li><a href="@Url.Action("Index", "cliente").ToLower()"><i class="fa fa-users"></i>&nbsp;Clientes</a></li>
+
+                        <li><a href="@Url.Action("index", "empresa")"><i class="fa fa-users"></i>&nbsp;Empresas</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </nav>
+        </div>
+    </div>
+</div>

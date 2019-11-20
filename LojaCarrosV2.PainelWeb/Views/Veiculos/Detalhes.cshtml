@@ -1,0 +1,234 @@
+﻿@model LojaCarrosV2.PainelWeb.Models.VeiculoVM
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/StyleTables.css" rel="stylesheet" />
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @ViewBag.Title
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            
+            <div class="col-md-6">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DataCadastro)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DataCadastro)
+                    </dd>
+
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IdTipo)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IdTipo)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IdCombustivel)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IdCombustivel)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IdMarca)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IdMarca)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Ativo)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Ativo)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Destaque)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Destaque)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IdVeiculo)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IdVeiculo)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Modelo)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Modelo)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.AnoModelo)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.AnoModelo)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.AnoFabricacao)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.AnoFabricacao)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Renavan)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Renavan)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Descricao)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Descricao)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Valor)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Valor)
+                    </dd>
+
+
+
+                </dl>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        Integrar a 
+                    </div>
+                    <div class="panel-body row">
+                        <div class="col-md-2">
+                            @{
+                                string urlBase = "https://auth.olx.com.br/oauth";
+                                string scope = "basic_user_info autoupload";
+                                string state = "/veiculos/detalhes/" + @Model.IdVeiculo;
+                                string redirect_uri = "http://www.painel.enriqueautomoveis.com.br/code";
+                                string response_type = "code";
+                                string client_id = "f78b32a2df237759e36b8e9f078bd991c16687e4";
+                                
+                                string profile = "/veiculos/detalhes/" + @Model.IdVeiculo;
+                            }
+                            @*<a href="https://auth.olx.com.br/oauth?scope=basic_user_info autoupload&state=@profile&redirect_uri=http://www.painel.enriqueautomoveis.com.br/code&response_type=code&client_id=f78b32a2df237759e36b8e9f078bd991c16687e4"><img class="img-responsive" src="~/images/olx.png" /></a>*@
+                            <a href="@urlBase?scope=@scope&state=@state&redirect_uri=@redirect_uri&response_type=@response_type&client_id=@client_id"><img class="img-responsive" src="~/images/olx.png" /></a>
+                        </div>
+                    </div>
+                </div>
+                       
+                    </div>
+                </div>
+                <div class="row">
+
+                    <di0v class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+                        @{
+                            int idAcordion = 0;
+                            foreach (var item in ViewBag.Consultas)
+                            {
+
+                                string heading = "heading" + @idAcordion;
+                                string collapse = "collapse" + @idAcordion;
+                                <div class="panel panel-custom">
+                                    <div class="panel-heading" role="tab" id="@heading'">
+                                        <h4 class="panel-title">
+
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#@collapse" aria-expanded="true" aria-controls="@collapse">
+                                                <i class="glyphicon glyphicon-plus"></i>
+                                                @item.QtdMultas Multa(s) encontradas na consulta realizada em  @item.DataConsulta Renavan @item.Renavan
+                                            </a>
+
+                                            <a class="btn btn-danger lkbExcluir"
+                                               data-id="@item.IdConsulta"
+                                               data-nome="@item.DataConsulta"
+                                               data-controller="@Url.Action("excluir", "Detran", new {area="", id = item.IdConsulta })"
+                                               data-target="#myModalExcluir"
+                                               data-toggle="modal"
+                                               title="Excluir">
+                                                <i class="fa fa-trash-o"></i>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="@collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@heading">
+                                        <div class="panel-body animated zoomOut">
+
+
+                                            @foreach (var itemMulta in item.Multas)
+                                            {
+                                                <p><label>Auto de Infração </label>  @itemMulta.AutoDeInfracao</p>
+                                                <p><label>Auto de Renainf </label> @itemMulta.AutoDeRenainf</p>
+                                                <p><label>Data para pagamento com desconto </label>@itemMulta.DataPgtoDesconto</p>
+                                                <p><label>Enquadramento da Infração </label>@itemMulta.Enquadramento</p>
+                                                <p><label>Data da Infração </label> @itemMulta.DatadaInfracao</p>
+                                                <p><label>Hora </label> @itemMulta.HoraDaInfracao</p>
+                                                <p><label>Descrição </label> @itemMulta.Descricao </p>
+                                                <p><label>Placa Relacionada </label> @itemMulta.PlacaRelacionada</p>
+                                                <p><label>Local da Infração </label> @itemMulta.LocalInfracao</p>
+                                                <p><label>Valor original </label>  @itemMulta.ValorOriginal</p>
+                                                <p><label>Valor a ser pago </label> @itemMulta.ValorSerPago </p>
+                                                <p><label>Status de Pagamento </label> @itemMulta.StatusPagamento</p>
+                                                <p><label>Órgão Emissor </label> @itemMulta.OrgaoEmissor</p>
+                                                <p><label>Agente Emissor </label> @itemMulta.AgenteEmissor</p>
+                                                <hr />
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                            idAcordion++;
+                            }
+                        }
+
+                        @*<div class="panel panel-custom">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <i class="glyphicon glyphicon-plus"></i>
+                                    Collapsible Group Item #1
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body animated zoomOut">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            </div>
+                        </div>
+                    </div>
+                        *@
+                    </di0v>
+                </div>
+            </div>
+</div>
+@Html.Partial("_ModalExcluir")
+@Html.Partial("_Modal")

@@ -1,0 +1,129 @@
+﻿@model LojaCarrosV2.PainelWeb.Models.UsuarioModelLogin
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="shortcut icon" href="~/images/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/move-top")
+
+
+</head>
+<body style="padding-top:70px">
+
+    <div class="loading modal-backdrop fade in" id="loading">
+        <img src="~/images/loader_profile.gif" />
+    </div>
+
+
+    <div class="container" style="margin-top:40px">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <strong> Informe seu Email e Senha</strong>
+                    </div>
+
+                    <div style="color:red">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="panel-body">
+
+                        @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+                        {
+                        @Html.HiddenFor(u => u.Url)
+                        <fieldset>
+                            <div class="row">
+                                <div class="center-block">
+                                    <img class="profile-img" style="width: 90px"
+                                         src="~/images/co.png" alt="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-10  col-md-offset-1 ">
+
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-user"></i>
+                                            </span>
+                                            @Html.TextBoxFor(u => u.Email, new { @class = "form-control", placeholder = "Email", @Style = "autofocus" })
+
+                                        </div>
+                                        @Html.ValidationMessageFor(c => c.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-lock"></i>
+                                            </span>
+                                            @Html.PasswordFor(u => u.Senha, new { @class = "form-control", placeholder = "Password" })
+
+                                        </div>
+                                        @Html.ValidationMessageFor(c => c.Senha, "", new { @class = "text-danger" })<div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Entrar">
+                                    </div>
+                                    <div class="form-group">
+                                        
+                                            @Html.CheckBoxFor(u => u.Remember)                                           
+                                        <label>  Lembrar?</label>
+                                        
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        }
+                    </div>
+                    @Html.Action("Index", "Esqueceu")
+                    <div class="panel-footer ">
+                        <a href=" #warning" data-toggle="modal">Esqueci minha senha</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copy-rights text-center">
+        <p><a href="@ViewBag.DominioAppCliente"><h4><i class="fa fa-home"></i>&nbsp;Home</h4></a></p>
+    </div>
+
+    @Html.Partial("_Modal")
+
+
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

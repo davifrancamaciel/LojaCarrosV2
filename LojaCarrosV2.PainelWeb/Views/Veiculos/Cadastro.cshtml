@@ -1,0 +1,36 @@
+﻿@model LojaCarrosV2.PainelWeb.Models.VeiculoVM
+@using LojaCarrosV2.Utilidade
+@{
+    ViewBag.Title = "Cadastro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @ViewBag.Title
+    </div>
+    <div class="panel-body">
+
+        @Html.Partial("_FormVeiculo")
+
+    </div>
+</div>
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")    
+    <script src="~/Scripts/veiculo.js"></script>   
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

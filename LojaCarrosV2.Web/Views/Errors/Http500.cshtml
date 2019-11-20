@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Http500";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="about">
+    <div class="error-404 text-center">
+        <h1>500</h1>
+        <p>Erro interno do servidor.....!</p>
+        <h2>:(</h2>
+        <a class="b-home" href="@Url.Action("Index", "Home", new { area = "", controller = "Home" })" title="Home">Voltar para a Home</a>
+
+    </div>
+</div>
+

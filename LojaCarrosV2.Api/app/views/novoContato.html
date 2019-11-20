@@ -1,0 +1,64 @@
+﻿<div class="jumbotron">
+    <a href="#/contatos" class="btn btn-primary btn-block" >lista contatos</a>
+    <form name="contatoForm">
+
+        <input name="modelo" class="form-control" type="text" ng-model="contato.modelo" placeholder="Modelo" ng-required="true" />
+        <input name="descricao" class=" form-control" type="text" ng-model="contato.descricao" placeholder="Descricao" ng-required="true" />
+        <input name="anoFabricacao" class=" form-control" type="text" ng-model="contato.anoFabricacao" placeholder="Ano Fabricado" ng-required="true" />
+        <input name="anoModelo" class=" form-control" type="text" ng-model="contato.anoModelo" placeholder="Ano Modelo" ng-required="true" />
+        <input name="valor" class=" form-control" type="text" ng-model="contato.valor" placeholder="Valor" ng-required="true" />
+        <label>Ativo:</label>
+        <input name="ativo" type="checkbox" ng-model="contato.ativo" />
+        <label>Destaque:</label>
+        <input name="destaque" type="checkbox" ng-model="contato.destaque" ng-disabled="true"/>
+        <input type="text" class="form-control" name="data" ng-model="contato.dataCadastro" placeholder="Data" ui-date />
+
+
+        <!--<div ng-show="contatoForm.nome.$invalid && contatoForm.nome.$dirty" class="text-danger">*</div>-->
+        <!--<input name="telefone" class=" form-control" type="text" ng-model="contato.telefone" placeholder="Telefone" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/" />-->
+        <!--<div ng-show="telefone.$invalid && telefone.$dirty" class="text-danger">*</div>-->
+        <br />
+
+
+        <!--to ai data-bind-->
+        <!--{{nome}}
+        {{telefone}}-->
+        <!--para pegar o value com a propriedade (codigo operadora.codigo as...) caso nao colocar (operadora.nome for operadora in operadoras)-->
+        <!--<select ng-model="contato.operadora" ng-options=" operadora.nome group by operadora.categoria for operadora in operadoras" class="form-control">-->
+        <!--<select ng-model="contato.operadora" ng-options=" operadora.nome +'( '+ (operadora.preco |currency) + ' )' for operadora in operadoras" class="form-control" ng-required="true">-->
+        <select ng-model="contato.marca.idMarca" ng-options="operadora.idMarca as operadora.nome  for operadora in operadoras" class="form-control" ng-required="true">
+            <option value="">selecione uma Marca</option>
+        </select>
+        <select ng-model="contato.combustivel.idCombustivel" ng-options="combustivel.idCombustivel as combustivel.nome  for combustivel in combustiveis" class="form-control" ng-required="true">
+            <option value="">selecione um combustivel</option>
+        </select>
+    </form>
+
+
+    <div ng-messages="contatoForm.modelo.$error" class="alert alert-danger">
+        <div ng-message="minlength">
+            10 caracteres
+        </div>
+        <div ng-message="required">
+            campo nome requerido
+        </div>
+    </div>
+
+    <div ng-show="contatoForm.descricao.$error.required && contatoForm.modelo.$dirty" class="alert alert-danger">
+        Por favor, preencha o campo telefone!
+    </div>
+    <div ng-show="contatoForm.modelo.$error.minlength" class="alert alert-danger">
+        10 caracteres
+    </div>
+    <div ng-show="contatoForm.modelo.$error.pattern" class="alert alert-danger">
+        O campo telefone deve ter o formato DDDDD-DDDD.
+    </div>
+
+
+
+    <button class="btn btn-primary btn-block" ng-click="adicionarContato(contato)" ng-disabled="contatoForm.$invalid">Salvar</button>
+    <!--<button class="btn btn-danger btn-block" ng-click="apagarContato(contatos)" ng-disabled="!isContatoSelecionado(contatos)">Apagar</button>-->
+    <!--<button class="btn btn-danger btn-block" ng-click="apagarContato(contatos)" ng-show="isContatoSelecionado(contatos)">Apagar</button>-->
+    <button class="btn btn-danger btn-block" ng-click="apagarContato(contatos)" ng-if="isContatoSelecionado(contatos)">Apagar</button>
+    {{contato}}
+</div>

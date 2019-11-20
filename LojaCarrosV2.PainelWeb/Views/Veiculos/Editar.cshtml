@@ -1,0 +1,106 @@
+﻿@model LojaCarrosV2.PainelWeb.Models.VeiculoVM
+@using LojaCarrosV2.Utilidade
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<input type="hidden" value="@Model.Pagina" id="hddPagina" />*@
+
+<div class="panel panel-default">
+    <div class="panel-heading" style="min-height:70px">
+        <div class="form-group">
+            <div class="col-md-10">
+                @ViewBag.Title  Veiculo <span class="text-primary">@Model.IdVeiculo </span>
+                Cadastrado  em  @Model.DataCadastro
+            </div>
+            <div class="col-md-2">
+                @Html.Partial("UploadImagens")
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-12">
+            @Html.Partial("_Galeria")
+            <hr />
+        </div>
+        @Html.Partial("_FormVeiculo")
+        @Html.Partial("~/Views/Detran/DetranRJ.cshtml")
+
+
+    </div>
+
+    @*<div class="panel-footer">
+            @Html.Partial("_Galeria")
+        </div>*@
+
+</div>
+
+
+<div class="modal fade" id="buscar-modal" tabindex="-1" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Buscar NADA CONSTA</h4>
+            </div>
+            <div class="modal-body" style="height:250px;">
+                <p>Preencha com o texto da imagem</p>
+                <br />
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Texto</label>
+                        <div class="col-md-5">
+                            <input type="text" id="img-input" value="" class="form-control caixa-grande" />
+                        </div>
+                    </div>
+                    <div class="form-group img-captcha">
+                        <div class="col-md-offset-2 col-md-6">
+                            <div style="float:left;">
+                                <img id="captcha-img" title="Informe o texto da imagem" class="hidden" />
+                            </div>
+                            <div style="float:right;">
+                                <a href="#" id="buscar-captcha-btn" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-refresh"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="height:80px;">
+                <p class="bg-danger pull-left hidden msg" style="padding:10px 20px;">
+                    <i class="glyphicon glyphicon-warning-sign"></i>&nbsp;<strong><span id="msgErro-span"></span></strong>
+                </p>
+                <button type="button" id="fechar-button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" id="buscarDados-btn" class="btn btn-primary">Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="~/Scripts/jquery.mask.js"></script>
+    <script src="~/Scripts/detranRj.js"></script>
+
+
+    <link href="~/jquery-upload/css/uploadfile.css" rel="stylesheet" />
+    <script src="~/jquery-upload/js/jquery.form.js"></script>
+    <script src="~/jquery-upload/js/jquery.uploadfile.js"></script>
+    <script src="~/Scripts/veiculo.js"></script>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html ng-app="AutoStore">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Grand+Hotel:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet:100,300,400,500,600,700,800,900' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+    
+    <script src="js/lib/jquery/jquery-1.11.1.min.js"></script>
+    <script src="js/lib/bootstrap/bootstrap.min.js"></script>   
+    <link href="css/rzslider.css" rel="stylesheet" />
+    
+
+    <script src="js/lib/angular/angular.js"></script>
+    <script src="js/lib/angular/angular-locale_pt-br.js"></script>
+    <script src="js/lib/angular/angular-messages.js"></script>
+    <script src="js/lib/angular/angular-route.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/diretives/dirPagination.js"></script>
+    <script src="js/configuration/routeConfig.js"></script>
+    <script src="js/value/configValue.js"></script>
+    <script src="js/controllers/veiculoController.js"></script>
+    <script src="js/controllers/tipoController.js"></script>
+    <script src="js/controllers/marcaController.js"></script>
+    <script src="js/services/veiculosAPIService.js"></script>
+    <script src="js/services/tiposAPIService.js"></script>
+    <script src="js/services/marcasAPIService.js"></script>
+
+    <script src="js/lib/jquery/easing.js"></script>
+    <script src="js/lib/jquery/move-top.js"></script>
+
+    <script src="js/particular/easyResponsiveTabs.js"></script>
+    <script src="js/particular/responsiveslides.min.js"></script>
+
+    <script src="js/particular/scripts.js"></script>
+    <script src="js/particular/filtrosHome.js"></script>
+
+
+    <script src="lib/bootstrap/ui-bootstrap-tpls-1.0.3.min.js"></script>
+    <script src="js/diretives/ui-bootstrap-tpls.js"></script>
+    <script src="js/diretives/rzslider.min.js"></script>
+    
+    
+    <script>
+
+    $(function () {
+        $("#slider").responsiveSlides({
+            auto: true,
+            nav: true,
+            speed: 500,
+            namespace: "callbacks",
+            pager: true,
+        });
+    });
+
+    $(document).ready(function () {
+        $('#horizontalTab').easyResponsiveTabs({
+            type: 'default',
+            width: 'auto',
+            fit: true
+        });
+    });
+    </script>
+
+</head>
+<body>
+
+    <div ng-include="'views/shared/Topo.html'"></div>
+    
+
+    <div ng-view>
+
+    </div>
+
+</body>
+</html>

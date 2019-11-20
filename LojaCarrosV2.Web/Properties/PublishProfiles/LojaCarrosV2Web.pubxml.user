@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\DAVI\Documents\_Projetos\lojacarrosV2\Web</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>11/10/2015 20:45:41</publishTime>
+    </File>
+    <File Include="bin/LojaCarrosV2.Domain.dll">
+      <publishTime>12/05/2016 11:03:33</publishTime>
+    </File>
+    <File Include="bin/LojaCarrosV2.Infra.dll">
+      <publishTime>12/05/2016 21:26:44</publishTime>
+    </File>
+    <File Include="bin/LojaCarrosV2.Utilidade.dll">
+      <publishTime>11/02/2016 11:42:05</publishTime>
+    </File>
+    <File Include="bin/LojaCarrosV2.Web.dll">
+      <publishTime>12/05/2016 21:44:21</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>11/10/2015 20:45:39</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>10/02/2015 17:05:26</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>01/20/2016 00:00:26</publishTime>
+    </File>
+    <File Include="bin/PagedList.dll">
+      <publishTime>11/10/2015 20:59:51</publishTime>
+    </File>
+    <File Include="bin/PagedList.Mvc.dll">
+      <publishTime>11/10/2015 20:59:51</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>01/22/2016 10:05:37</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>01/22/2016 10:05:37</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>11/10/2015 20:45:36</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>01/22/2016 10:05:37</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>01/22/2016 10:05:37</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>01/22/2016 10:05:37</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>01/22/2016 10:05:37</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>11/10/2015 20:45:42</publishTime>
+    </File>
+    <File Include="classes/Rota.asmx">
+      <publishTime>02/17/2016 21:17:16</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>01/21/2016 20:15:32</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>01/21/2016 20:15:32</publishTime>
+    </File>
+    <File Include="Content/jquery.fancybox.css">
+      <publishTime>01/21/2016 20:15:32</publishTime>
+    </File>
+    <File Include="Content/PagedList.css">
+      <publishTime>01/22/2016 09:50:01</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>05/07/2016 12:05:08</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>01/21/2016 20:11:04</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>01/21/2016 20:11:04</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>01/21/2016 20:11:04</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>01/21/2016 20:11:04</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>01/21/2016 20:11:02</publishTime>
+    </File>
+    <File Include="images/a1.jpg">
+      <publishTime>01/21/2016 20:18:19</publishTime>
+    </File>
+    <File Include="images/ajax-loader-facebook.gif">
+      <publishTime>01/21/2016 20:18:19</publishTime>
+    </File>
+    <File Include="images/arrow_up.png">
+      <publishTime>01/21/2016 20:18:19</publishTime>
+    </File>
+    <File Include="images/banner.jpg">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/banner1.jpg">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/banner6.jpg">
+      <publishTime>04/12/2016 15:17:14</publishTime>
+    </File>
+    <File Include="images/banner7.jpg">
+      <publishTime>04/12/2016 15:11:59</publishTime>
+    </File>
+    <File Include="images/bmw.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/chevrolet_hover.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/citroen.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/co.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/error-500.png">
+      <publishTime>12/04/2016 16:39:57</publishTime>
+    </File>
+    <File Include="images/favicon.ico">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/fiat.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/ford.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/hd.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/icons.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/kia.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/land.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/logo.gif">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/logo5.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/mit.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/nav.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/nisan.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/perfil.png">
+      <publishTime>01/27/2016 00:11:37</publishTime>
+    </File>
+    <File Include="images/peugeot.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/pic12.jpg">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/rn.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/sobre.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/toy.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/Volkswagen.png">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="images/_semfoto.jpg">
+      <publishTime>01/21/2016 20:18:20</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>01/22/2016 10:05:44</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>01/21/2016 20:16:39</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>01/21/2016 20:16:39</publishTime>
+    </File>
+    <File Include="Scripts/detranRj.js">
+      <publishTime>11/02/2016 11:03:30</publishTime>
+    </File>
+    <File Include="Scripts/easing.js">
+      <publishTime>01/21/2016 20:16:39</publishTime>
+    </File>
+    <File Include="Scripts/easyResponsiveTabs.js">
+      <publishTime>01/21/2016 20:16:39</publishTime>
+    </File>
+    <File Include="Scripts/filtrosHome.js">
+      <publishTime>03/31/2016 12:09:57</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>01/21/2016 20:16:40</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>01/21/2016 20:16:40</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>01/21/2016 20:16:40</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.11.1.min.js">
+      <publishTime>01/21/2016 20:16:40</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.0.3.min.js">
+      <publishTime>01/21/2016 20:16:40</publishTime>
+    </File>
+    <File Include="Scripts/jquery.fancybox.js">
+      <publishTime>01/21/2016 20:16:39</publishTime>
+    </File>
+    <File Include="Scripts/jquery.mask.js">
+      <publishTime>11/02/2016 11:34:34</publishTime>
+    </File>
+    <File Include="Scripts/jquery.maskedinput.js">
+      <publishTime>01/21/2016 20:16:39</publishTime>
+    </File>
+    <File Include="Scripts/jquery.pagifymvc-1.1.0.js">
+      <publishTime>01/21/2016 20:16:39</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>01/21/2016 20:16:39</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>01/21/2016 20:16:39</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>01/21/2016 20:16:40</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>01/26/2016 12:56:16</publishTime>
+    </File>
+    <File Include="Scripts/marca.js">
+      <publishTime>01/21/2016 20:16:40</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>01/21/2016 20:16:40</publishTime>
+    </File>
+    <File Include="Scripts/move-top.js">
+      <publishTime>01/21/2016 20:16:40</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>01/21/2016 20:16:40</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>01/21/2016 20:16:40</publishTime>
+    </File>
+    <File Include="Scripts/responsiveslides.min.js">
+      <publishTime>01/21/2016 20:16:40</publishTime>
+    </File>
+    <File Include="Scripts/scripts.js">
+      <publishTime>04/02/2016 14:12:27</publishTime>
+    </File>
+    <File Include="Scripts/slides.jquery.js">
+      <publishTime>01/21/2016 20:16:40</publishTime>
+    </File>
+    <File Include="Scripts/veiculo.js">
+      <publishTime>01/21/2016 20:16:40</publishTime>
+    </File>
+    <File Include="Views/Contato/Index.cshtml">
+      <publishTime>04/08/2016 09:55:42</publishTime>
+    </File>
+    <File Include="Views/Detran/Rj.cshtml">
+      <publishTime>11/02/2016 10:58:27</publishTime>
+    </File>
+    <File Include="Views/Errors/Http404.cshtml">
+      <publishTime>01/21/2016 20:18:10</publishTime>
+    </File>
+    <File Include="Views/Errors/Http500.cshtml">
+      <publishTime>01/21/2016 20:18:10</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>12/04/2016 15:32:21</publishTime>
+    </File>
+    <File Include="Views/Home/Sobre.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Shared/_Filtros.cshtml">
+      <publishTime>04/08/2016 09:55:42</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>12/04/2016 17:35:41</publishTime>
+    </File>
+    <File Include="Views/Shared/_Modal.cshtml">
+      <publishTime>04/08/2016 09:51:38</publishTime>
+    </File>
+    <File Include="Views/Shared/_ModalFotos.cshtml">
+      <publishTime>01/21/2016 20:18:16</publishTime>
+    </File>
+    <File Include="Views/Shared/_Paginador.cshtml">
+      <publishTime>02/15/2016 18:03:44</publishTime>
+    </File>
+    <File Include="Views/Shared/_Rodape.cshtml">
+      <publishTime>12/01/2016 21:43:56</publishTime>
+    </File>
+    <File Include="Views/Shared/_Topo.cshtml">
+      <publishTime>11/02/2016 11:05:43</publishTime>
+    </File>
+    <File Include="Views/Veiculos/Detalhes.cshtml">
+      <publishTime>06/01/2016 22:40:50</publishTime>
+    </File>
+    <File Include="Views/Veiculos/Index.cshtml">
+      <publishTime>05/17/2016 13:48:53</publishTime>
+    </File>
+    <File Include="Views/Veiculos/_Paginador1P.cshtml">
+      <publishTime>01/21/2016 20:18:16</publishTime>
+    </File>
+    <File Include="Views/Veiculos/_Paginador2P.cshtml">
+      <publishTime>01/21/2016 20:18:16</publishTime>
+    </File>
+    <File Include="Views/Veiculos/_Paginador3P.cshtml">
+      <publishTime>01/21/2016 20:18:16</publishTime>
+    </File>
+    <File Include="Views/Veiculos/_Paginador4P.cshtml">
+      <publishTime>01/21/2016 20:18:16</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>01/26/2016 12:56:40</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>12/05/2016 21:44:22</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

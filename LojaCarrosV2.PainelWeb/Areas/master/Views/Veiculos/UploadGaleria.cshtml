@@ -1,0 +1,105 @@
+﻿@using LojaCarrosV2.Utilidade
+@model LojaCarrosV2.PainelWeb.Models.VeiculoVM
+@{
+    ViewBag.Title = "Upload";
+    Layout = "~/Areas/master/Views/Shared/_Layout.cshtml";
+}
+
+
+@*@{
+    int idVeiculo = 0;
+    if (ViewBag.IdVeiculo != null)
+    {// ViewBag.IdVeiculo é propriedade da action upload
+        idVeiculo = Convert.ToInt32(ViewBag.IdVeiculo);
+    }
+}*@
+<input type="hidden" value="@Model.IdVeiculo" id="hddIdVeiculo" />
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Upload
+    </div>
+    <div class="panel-body">
+
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="form-group">
+                    <label class="control-label col-md-3"></label>
+                    <div class="col-md-9">
+
+                    </div>
+                </div>
+
+                <div class="form-group" id="upload">
+                    <label class="control-label col-md-3">Selecione seus arquivos:</label>
+                    <div class="col-md-7">
+
+                        <div id="fileuploader">Upload</div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts{
+
+    <link href="~/jquery-upload/css/uploadfile.css" rel="stylesheet" />
+    <script src="~/jquery-upload/js/jquery.form.js"></script>
+    <script src="~/jquery-upload/js/jquery.uploadfile.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            var idVeiculo = $("#hddIdVeiculo").val();
+            //var idVeiculo = 83;
+            console.log(idVeiculo);
+
+            $('#upload').hide();
+
+
+            if (idVeiculo !== "0") {
+                $('#upload').show();
+                $("#fileuploader").uploadFile({
+
+                    url: "/Veiculos/Upload?id=" + idVeiculo,
+                    fileName: "myfile",
+                    showPreview: true,
+                    previewHeight: "100px",
+                    previewWidth: "100px",
+                    acceptFiles: "image/*",
+                    autoSubmit: true,
+                    sequential: true,
+                    sequentialCount: 1,
+
+                    maxFileCountErrorStr: "Não foi gravado. O máximo de Arquivos por vez é:",
+                    //maxFileSize: 1048576,
+                    maxFileSize: 2097152,//2mb
+                    sizeErrorStr: "Esta imagem ultrapassou o limite de: ",
+                    maxFileCount: 15,
+
+                    afterUploadAll: function (obj) {
+
+                        location.reload();
+
+                        $(location).attr('href', '/master/veiculos')
+
+                    }
+                });
+
+            } else {
+                $('#upload').hide();
+            }
+
+        });
+    </script>
+
+}

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html ng-app="ListaTelefonica">
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>Loja angular    </title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+    
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-locale_pt-br.js"></script>
+    <script src="lib/angular/angular-messages.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
+    <script src="lib/ui/ui.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/ListaTelefonicaController.js"></script>
+    <script src="js/controllers/novoContatoController.js"></script>
+    <script src="js/controllers/detalhesContatoColtroller.js"></script>
+    <script src="js/services/contatosAPIService.js"></script>
+    <script src="js/services/operadorasAPIService.js"></script>
+    <script src="js/configuration/routeConfig.js"></script>
+    <script src="js/value/configValue.js"></script>
+    <script src="js/filters/nameFilter.js"></script>
+    <script src="js/filters/ellipsisFilter.js"></script>
+    <script src="js/diretives/uiAlertDirective.js"></script>
+    <script src="js/diretives/uiDateDirective.js"></script>
+    <!--<script src="js/diretives/uiAccordionDirective.js"></script>-->
+
+</head>
+<body >
+    <div ng-view></div>
+    
+    <div ng-include="'views/Rodape.html'"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

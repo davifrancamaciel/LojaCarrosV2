@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/master/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@ViewBag.Token
+
+<br />
+@ViewBag.State
+<br />
+@ViewBag.TokenOAuthOLX
+
+@*@ViewBag.TokenOAuthOLX.ContentType
+@ViewBag.TokenOAuthOLX.Headers
+@ViewBag.TokenOAuthOLX.ResponseStatus*@
+@*@ViewBag.TokenOAuthOLX.Data.access_token*@
+
+<input type="text" name="tk" id="tk" value="@ViewBag.Token" class=" form-control" /><br />
+<input type="button" id="auth-button" class="btn btn-info" value="Logar" />
+<input type="button" id="request-button" class="btn btn-info" value="fazer requisicao" />
+<div id="result-area"></div>
+@section scripts{
+
+    @*<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>*@
+    <script>
+        $(document).ready(function () {
+            //limpa o tokentoda vez que a aplicacao é carregada
+            localStorage.setItem('jtoken', '');
+            $("#auth-button").on('click', function () {
+                var data = {
+                    code: $('#tk').val(),
+                    client_id: 'f78b32a2df237759e36b8e9f078bd991c16687e4',
+                    client_secret: 'adb6804fa6e15e5d880dd54b16843628',
+                    redirect_uri: 'http://www.painel.enriqueautomoveis.com.br/code',
+                    grant_type: 'authorization_code',
+                    client_id: 'f78b32a2df237759e36b8e9f078bd991c16687e4'
+                    //username: $('#username').val(),
+                    //password: $('#password').val()
+                }
+                $.ajax({
+                    url: "https://auth.olx.com.br/oauth/token",
+                    type: 'post',
+                    contentType: 'x-www-form-urlencoded',
+                    data: data
+                }).done(function (data) {
+                    $("#result-area").append("<p>" + data.access_token + "</p>");
+                    $("#result-area").append("<p>" + data.token_type + "</p>");
+                    $("#result-area").append("<p>" + data.expires_in + "</p>");
+                    console.log(data);
+                    localStorage.setItem('jtoken', data.access_token);
+                }).error(function () {
+                    $("#result-area").append("<p>Usuaroio ou senha invalidos</p>");
+                })
+            });
+            $("#request-button").on('click', function () {
+
+                // se eu armazenar o tokem em uma variavel java script ele some se aperta f5
+                // se usar o sessionStorage componete do html 5 o meu token vai em bora se eu fechar o navegador
+                // com o localStorage eu mantenho o tokem mesmo se a pessoa fechar o navegador trazer conforto para o usuaro porem traz um risco de que ele fica gravado na maquina e outras pessoas podem usar
+
+                var token = localStorage.getItem('jtoken');
+                $.ajax({
+                    url: "http://localhost:33680/api/values",
+                    type: 'get',
+                    contentType: 'application/json',
+                    headers: {
+                        "Authorization": "Bearer " + token
+                    }
+                }).done(function (data) {
+                    $("#result-area").append("<p>" + data + "</p>");
+                })
+            });
+        })
+    </script>
+}

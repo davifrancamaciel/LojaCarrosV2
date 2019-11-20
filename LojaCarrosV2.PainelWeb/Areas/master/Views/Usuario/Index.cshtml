@@ -1,0 +1,141 @@
+﻿@using LojaCarrosV2.Utilidade
+@model PagedList.IPagedList<LojaCarrosV2.Domain.Entidade.Usuario>
+@{
+    ViewBag.Title = "Listar Usuarios";
+    Layout = "~/Areas/master/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/StyleTables.css" rel="stylesheet" />
+
+<div class="panel panel-default">
+    <div class="panel-heading" style="min-height:50px">
+        <div class="form-group">
+            <label class="control-label col-md-10">Listar</label>
+            <div class="col-md-2">
+                <a class="btn btn-success" href="@Url.Action("Cadastro", "Usuario").ToLower() ">Novo Usuario</a>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+
+        <div class="form-group">
+
+            <label class="control-label col-md-4">Nome do Usuario:</label>
+            <div class="col-md-8">
+                @using (@Html.BeginForm("index", "usuario", FormMethod.Get))
+                {
+                    string valor = "";
+                    if (!string.IsNullOrEmpty(Request.QueryString["q"]))
+                    {
+                        valor = Request.QueryString["q"].ToLower();
+                    }
+
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="q" id="q" placeholder="Ex. email" value="@valor">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                }
+                <div class="col-lg-6">
+                    <div class="btn-group">
+                        <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Itens por página @Model.Count <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = ViewBag.SortOrder, cs = ViewBag.CurrentSort, pt = 5 })">5</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = ViewBag.SortOrder, cs = ViewBag.CurrentSort, pt = 10 })">10</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = ViewBag.SortOrder, cs = ViewBag.CurrentSort, pt = 15 })">15</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = ViewBag.SortOrder, cs = ViewBag.CurrentSort, pt = 20 })">20</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="method text-center">
+            <div class="row margin-0 list-header hidden-sm hidden-xs">
+                <div class="col-md-3"><div class="header"><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = "empresa", cs = ViewBag.CurrentSort, pt = ViewBag.PaginaTamanho })">Empresa <span id="orderEmail"></span></a></div></div>
+                <div class="col-md-3"><div class="header"><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = "email", cs = ViewBag.CurrentSort, pt = ViewBag.PaginaTamanho })">Email <span id="orderEmail"></span></a></div></div>
+                <div class="col-md-3"><div class="header">Permissão</div></div>
+                <div class="col-md-3"><div class="header">Opções</div></div>
+            </div>
+            @foreach (var item in Model)
+            {
+                <div class="row margin-0">
+                    <div class="col-md-3">
+                        <div class="cell">
+                            <div class="propertyname">
+                                
+                                <a href="@Url.Action("index", "usuario",new { idEmpresa = item.IdEmpresa })" target="_blank" title="Veja o(s) usuarios de @item.Empresa.Nome.ToUpper()">
+                                    @item.Empresa.Nome.ToUpper()
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="cell">
+                            <div class="propertyname">
+                                @item.Email
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="cell">
+                            <div class="propertyname">
+                                @item.Permissao.Nome
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="cell">
+                            @Html.ActionLinkDavi("<i class='fa fa-pencil'></i>", "Editar", "editar", "usuario",
+                                voloresRota: new { id = item.IdUsuario },
+                                atributosHtml: new { data_modal = "", @class = "btn btn-default" })
+                            &nbsp;
+                            <a class="btn btn-danger lkbExcluir"
+                               @*data-id="@item.IdUsuario"*@
+                               data-nome="@item.Email"
+                               data-controller="@Url.Action("excluir", "usuario", new {area="master", id = item.IdUsuario })"
+                               data-target="#myModalExcluir"
+                               data-toggle="modal"
+                               title="Excluir">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div class="row margin-0 list-header hidden-sm hidden-xs">
+            <div class="col-md-12">
+                <div class="footer">
+                    Total de itens por pagina:<span style="color:red">@Model.Count</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="panel-footer">
+
+        @Html.Partial("_Paginador")
+
+
+    </div>
+
+</div>
+
+@Html.Partial("_ModalExcluir")
+@section scripts{
+    @*<script src="~/Scripts/filtrosHome.js"></script>*@
+}

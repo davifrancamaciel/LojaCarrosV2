@@ -1,0 +1,35 @@
+﻿@using LojaCarrosV2.Utilidade
+
+
+@*@if (ViewBag.Action != null)
+{
+    <input type="hidden" value="@ViewBag.Action" id="hddAcao" />
+}*@
+
+
+
+<a class="btn btn-primary" href="#primary" data-toggle="modal"><h4><i class="fa fa-plus"></i> Imagens</h4></a>
+<!-- Modal -->
+<div class="modal fade" id="primary" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-header-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1><i class="fa fa-thumbs-o-up"></i> Adicionar Imagens</h1>
+            </div>
+            <div class="modal-body" style="min-height:150px">
+                <div class="form-group" id="upload">
+                    <label class="control-label col-md-3">Selecione seus arquivos:</label>
+                    <div class="col-md-9">
+
+                        <div id="fileuploader">Upload</div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>

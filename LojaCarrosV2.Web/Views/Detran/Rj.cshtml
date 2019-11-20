@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "Rj";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="about_top">
+    <div class="container">
+        <div class="about">
+            <h1 class="blog_head">Consula de renavan RJ</h1>
+
+            <div class="contact">
+
+                <div class="col-md-12 contact_right">
+
+                    <div class="form-horizontal dados">
+
+                        <!--<p>00730280187</p><p>00951794388</p><p>00819052329</p>-->
+                        <div class="form-group">
+                    
+                            <label class="control-label col-md-4">RENAVAN</label>
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <input type="hidden" value="0" id="IdVeiculo" />
+                                    
+
+                                    <input type="text" id="Renavan" value="" class="form-control" autofocus data-mask="00000000000" data-mask-selectonfocus="true" placeholder="00000000000 (11 DIGITOS)" />
+                                    <span class="input-group-btn">
+                                        <button id="buscar-btn" disabled class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="clearfix"></div>
+                        <table width="100%" class="table table-striped table-bordered" id="cabecalho">
+                            <tbody>
+                                <tr>
+                                    <td><span class="sub-titulo">Data da consulta: </span><p id="dataConsulta"></p></td>
+                                    <td><span class="sub-titulo">Renavam: </span><p id="p-renavan"></p></td>
+                                    <td><span class="sub-titulo">Multas: </span><p id="p-multas"></p></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div id="resultado"></div>
+                    </div>
+
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+
+        </div>
+        @Html.Partial("_Rodape")
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="modal fade" id="buscar-modal" tabindex="-1" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Buscar NADA CONSTA</h4>
+            </div>
+            <div class="modal-body" style="height:250px;">
+                <p>Preencha com o texto da imagem</p>
+                <br />
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Texto</label>
+                        <div class="col-md-5">
+                            <input type="text" id="img-input" value="" class="form-control caixa-grande" />
+                        </div>
+                    </div>
+                    <div class="form-group img-captcha">
+                        <div class="col-md-offset-2 col-md-6">
+                            <div style="float:left;">
+                                <img id="captcha-img" title="Informe o texto da imagem" class="hidden" />
+                            </div>
+                            <div style="float:right;">
+                                <a href="#" id="buscar-captcha-btn" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-refresh"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="height:80px;">
+                <p class="bg-danger pull-left hidden msg" style="padding:10px 20px;">
+                    <i class="glyphicon glyphicon-warning-sign"></i>&nbsp;<strong><span id="msgErro-span"></span></strong>
+                </p>
+                <button type="button" id="fechar-button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" id="buscarDados-btn" class="btn btn-primary">Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/jquery.mask.js"></script>
+    <script src="~/Scripts/detranRj.js"></script>
+
+}

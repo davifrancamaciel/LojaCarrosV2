@@ -1,0 +1,164 @@
+﻿@model LojaCarrosV2.PainelWeb.Models.VeiculoVM
+@using LojaCarrosV2.Utilidade
+
+<div class="form-horizontal">
+
+    @using (Html.BeginForm("Cadastro", "Veiculos", FormMethod.Post))
+    {
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.IdVeiculo)
+    @Html.HiddenFor(model => model.Pagina)
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="row">
+        <div class="col-md-9">
+            <div id="formulario">
+                <div class="form-group">
+                    <label class="control-label col-md-3"> @Html.LabelFor(u => u.Modelo)</label>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(u => u.Modelo, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(c => c.Modelo, "", new { @class = "text-danger" })<div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AnoFabricacao, htmlAttributes: new { @class = "control-label col-md-3" })
+                    
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.AnoFabricacao, new SelectList(ViewBag.AnoFabricacao, "AnoLista", "AnoLista", ViewBag.AnoFabricacao = Model.AnoFabricacao), "-Selecione-", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(c => c.AnoFabricacao, "", new { @class = "text-danger" })<div class="clearfix"></div>
+                    </div>
+          
+                    @Html.LabelFor(model => model.AnoModelo, htmlAttributes: new { @class = "control-label col-md-3" })
+                   
+                    
+                    <div class="col-md-3">
+                        <select name="AnoModelo" id="AnoModelo" class="form-control" required="required">
+                            <option value="">-Selecione-</option>
+
+                            @foreach (var item in ViewBag.Ano)
+                            {
+                                if (@item.AnoLista == Model.AnoModelo)
+                                {
+                            <option selected value="@item.AnoLista">@item.AnoLista</option>
+                                }
+                            }
+                        </select>
+                        <div id="loadingAno" class="col-md-12">
+                            <img src="~/images/ajax-loader-facebook.gif" />
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="form-group">
+
+                    <label class="control-label col-md-3"> @Html.LabelFor(u => u.Valor)</label>
+                    <div class="col-md-9">
+                        <div class="input-group">
+                            <span class="input-group-addon">R$</span>
+                            @Html.TextBoxFor(u => u.Valor, new { @class = "form-control", @type = "number" })
+
+                            <span class="input-group-addon">.00</span>
+                            @Html.ValidationMessageFor(c => c.Valor, "", new { @class = "text-danger" })<div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IdCombustivel, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(model => model.IdCombustivel, new SelectList(ViewBag.Combustivel, "IdCombustivel", "Nome", ViewBag.Estado = Model.IdCombustivel), "-Selecione-", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IdCombustivel, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IdTipo, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(model => model.IdTipo, new SelectList(ViewBag.Tipo, "IdTipo", "Nome", ViewBag.Tipo = Model.IdTipo), "-Selecione-", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IdTipo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">Marca:</label>
+                    <div class="col-md-9">
+                        <select name="marca" id="marca" class="form-control" required="required">
+                            <option value="">-Selecione-</option>
+                            @if (ViewBag.Marcas != null)
+                            {
+                                foreach (var item in ViewBag.Marcas)
+                                {
+                                    if (@item.IdMarca == Model.IdMarca)
+                                    {
+                            <option selected value="@item.IdMarca">@item.Nome</option>
+                                    }
+                                    else
+                                    {
+                            <option value="@item.IdMarca">@item.Nome</option>
+                                    }
+                                }
+                            }
+                        </select>
+                        <div id="loadingMarca" class="col-md-12">
+                            <img src="~/images/ajax-loader-facebook.gif" />
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Renavan, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        
+                        @Html.TextBoxFor(model => model.Renavan, new { @class = "form-control", @placeholder = "00000000000 (11 DIGITOS)" })
+                        @if (!string.IsNullOrEmpty(Model.Renavan))
+                            {
+                        
+                        <button type="button" class="btn btn-success" title="Consultar Renavan" id="buscar-btn"><i class="glyphicon glyphicon-search"></i></button>
+                        
+                            }
+                        @Html.ValidationMessageFor(model => model.Renavan, "", new { @class = "text-danger" })
+                        
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">@Html.LabelFor(u => u.Descricao)</label>
+                    <div class="col-md-9">
+                        @Html.TextAreaFor(u => u.Descricao, new { @class = "form-control", @style = "min-height:150px" })
+                        @Html.ValidationMessageFor(c => c.Descricao, "", new { @class = "text-danger" })<div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ativo, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="control-label col-md-1">
+                        @Html.CheckBoxFor(x => x.Ativo)                     
+                    </div>
+                    @Html.LabelFor(model => model.Destaque, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="control-label col-md-1">
+                        @Html.CheckBoxFor(x=>x.Destaque)                
+                    </div>
+                    @Html.LabelFor(model => model.ExibeValor, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="control-label col-md-1">
+                        @Html.CheckBoxFor(x => x.ExibeValor)
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <hr />
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-1 col-md-12">
+            <input type="submit" value="Salvar" class="btn btn-primary" />
+
+            @Html.LinkVoltar("Voltar")
+
+        </div>
+    </div>
+    }
+
+</div>

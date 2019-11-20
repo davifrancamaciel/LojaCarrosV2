@@ -1,0 +1,147 @@
+﻿@using LojaCarrosV2.Utilidade
+
+@model PagedList.IPagedList<LojaCarrosV2.Domain.Entidade.Marca>
+
+@{
+    ViewBag.Title = "Listar todas as marcas";
+    Layout = "~/Areas/master/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/StyleTables.css" rel="stylesheet" />
+
+<div class="panel panel-default">
+    <div class="panel-heading" style="min-height:50px">
+        <div class="form-group">
+            <label class="control-label col-md-10">Listar</label>
+            <div class="col-md-2">
+                <a class="btn btn-success lkbCadastrar" id="lkbCadastrar" data-toggle="modal" data-target="#myModalCadastro">Nova Marca</a>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+
+
+        <div class="form-group">
+
+            <label class="control-label col-md-4">Nome:</label>
+            <div class="col-md-8">
+                @using (@Html.BeginForm("Index", "marca", FormMethod.Get))
+                {
+                    string valor = "";
+                    if (!string.IsNullOrEmpty(Request.QueryString["q"]))
+                    {
+                        valor = Request.QueryString["q"];
+                    }
+
+
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="q" id="q" placeholder="Ex. fiat" value="@valor">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                }
+                <div class="col-lg-6">
+                    <div class="btn-group">
+                        <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Itens por página @Model.Count <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = ViewBag.SortOrder, cs = ViewBag.CurrentSort, pt = 5 })">5</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = ViewBag.SortOrder, cs = ViewBag.CurrentSort, pt = 10 })">10</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = ViewBag.SortOrder, cs = ViewBag.CurrentSort, pt = 15 })">15</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = ViewBag.SortOrder, cs = ViewBag.CurrentSort, pt = 20 })">20</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+        <div class="method text-center">
+            <div class="row margin-0 list-header hidden-sm hidden-xs">
+                <div class="col-md-4"><div class="header"><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = "marca", cs = ViewBag.CurrentSort, pt = ViewBag.PaginaTamanho })">Marca <span id="orderMarca"></span></a></div></div>
+                <div class="col-md-4"><div class="header"><a href="@Url.Action(ViewBag.Action, new { q = ViewBag.Query, pagina = ViewBag.Pagina, so = "tipo", cs = ViewBag.CurrentSort, pt = ViewBag.PaginaTamanho })">Tipo <span id="orderTipo"></span></a></div></div>
+                <div class="col-md-4"><div class="header">Opções</div></div>
+            </div>
+            @foreach (var item in Model)
+            {
+                <div class="row margin-0">
+                    <div class="col-md-4">
+                        <div class="cell">
+                            <div class="propertyname">
+                                @item.Nome
+                                @if (DateTime.Now.Subtract(item.DataCadastro) <= TimeSpan.Parse("00:00:59.0000000"))
+                                {<br /><label class="label label-success">NOVO</label>}
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="cell">
+                            <div class="propertyname">
+                                @item.Tipo.Nome
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="cell">
+
+                            <a class="btn btn-default lkbEditar"
+                               data-id="@item.IdMarca"
+                               data-nome="@item.Nome"
+                               data-controller="Marca"
+                               data-target="#myModalCadastro"
+                               data-toggle="modal"
+                               title="Excluir">
+                                <i class='fa fa-pencil'></i>
+                            </a>
+                            &nbsp;
+                            <a class="btn btn-danger lkbExcluir"
+                               @*data-id="@item.IdMarca"*@
+                               data-nome="@item.Nome"
+                               data-controller="@Url.Action("excluir", "marca", new {area="master", id = item.IdMarca })"
+                               data-target="#myModalExcluir"
+                               data-toggle="modal"
+                               title="Excluir">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div class="row margin-0 list-header hidden-sm hidden-xs">
+            <div class="col-md-12">
+                <div class="footer">
+                    Total de itens por pagina:<span style="color:red">@Model.Count</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-footer">
+
+        @Html.Partial("_Paginador")
+
+    </div>
+
+</div>
+
+
+@Html.Partial("_Cadastro")
+
+
+@Html.Partial("_ModalExcluir")
+
+@section scripts{
+    
+    <script src="~/Scripts/marca.js"></script>
+}

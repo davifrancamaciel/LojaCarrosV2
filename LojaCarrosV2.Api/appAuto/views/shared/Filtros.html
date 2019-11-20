@@ -1,0 +1,57 @@
+﻿
+
+<div class="filtros">
+    <div class="container">
+        <div class="col-md-10 dropdown-buttons">
+           
+            <div class="col-md-4 dropdown-button">
+                <div class="section_room">
+                    <!--{{tipos}}-->                   
+                    
+                    <select name="tipo" id="tipo" class="frm-field" ng-model="tipoF" ng-options="tipo.nome for tipo in tipos" ng-change="recarregarMarcas(tipoF)">
+                        <option value=""> - TIPO - </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4 dropdown-button">
+                <div class="section_room">
+                    <!--{{marcas}}-->
+                    <select name="marca" id="marca" class="frm-field" ng-model="marcaF" ng-options="marca.nome for marca in marcas">
+                        <option value=""> - MARCA - </option>
+                    </select>
+                    <!--{{marca}}-->
+                </div>
+            </div>
+
+            <div class="col-md-2 dropdown-button">
+                <div class="section_room">
+                    <select name="anoInicio" id="anoInicio" class="frm-fiel">
+                        <option value=""> - ANO DE - </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2 dropdown-button">
+                <div class="section_room">
+                    <select name="anoFim" id="anoFim" class="frm-fiel">
+                        <option value=""> - ATE ANO - </option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-2 submit_button">
+            <input type="submit" value="Buscar" id="btnBuscar" ng-click="filtrosRedirect()">
+        </div>
+        <!--<div class="col-md-4">
+            <select ng-model="ordenacao" ng-change="ordenarPor(ordenacao)" class="form-control">
+                <option value=""> Ordenar por... </option>
+                <option value="modelo">Nome</option>
+                <option value="valor">Valor</option>
+                <option value="marca.nome">Marca</option>
+                <option value="anoFabricacao">Ano</option>
+            </select>
+        </div>-->
+
+        <div class="clearfix"> </div>
+    </div>
+</div>

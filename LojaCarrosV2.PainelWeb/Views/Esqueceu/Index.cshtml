@@ -1,0 +1,37 @@
+﻿
+
+
+
+@*<a class="btn btn-warning" href="#warning" data-toggle="modal"><h4><i class="glyphicon glyphicon-eye-open"></i> Warning</h4></a>*@
+<!-- Modal -->
+<div class="modal fade" id="warning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-header-warning">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1><i class="fa fa-thumbs-o-up"></i> Esqueci minha Senha</h1>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="emailEsqueceu" id="emailEsqueceu" placeholder="Informe seu Email" required>
+                        <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                    </div>
+                </div>
+
+                <label class="text-danger" id="mensagen"></label>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btnEnvioEmail" name="btnEnvioEmail" data-dismiss="modal" disabled>Enviar</button>
+                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/Scripts/login.js"></script>

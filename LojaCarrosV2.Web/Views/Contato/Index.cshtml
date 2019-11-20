@@ -1,0 +1,68 @@
+﻿@model LojaCarrosV2.Web.Models.ContatoVM
+@{
+    ViewBag.Title = "Contato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="about_top">
+    <div class="container">
+        <div class="about">
+            <h1 class="blog_head">Contato</h1>
+            
+            <div class="contact">
+                @*<div class="col-md-4 contact_left">
+                    <h3>Fale conosco</h3>
+                    <p>Entre em cotato conosco que assim que possivel retornaremos.</p>
+                    <p>A REALIZAÇÃO DE UM SONHO DA COMPRA DO SEU CARRO ESTÁ AQUI: MELHORES PREÇOS, FINANCIAMENTO COM MELHORES TAXAS, SEMINOVOS COM ÓTIMA PROCEDÊNCIA.</p>
+                    <p>Empresa tradicional no ramo de veículos, trabalha sempre focada na satisfação dos seus clientes.  Mantendo sempre um estoque Empresa tradicional no ramo de veículos, trabalha sempre focada na satisfação dos seus clientes.  Mantendo sempre um estoque atualizado e com veículos de qualidade, desta 
+                    forma fidelizando a cada dia mais clientes e com veículos de qualidade, desta forma fidelizando a cada dia mais clientes</p>
+                </div>*@
+                <div class="col-md-12 contact_right">
+                    <h3>Envie-nos uma mensagem.</h3>
+                    @using (Html.BeginForm())
+                    {
+                        <p>@Html.AntiForgeryToken()</p>
+
+                        <p>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</p>
+
+                        <div class="text">
+                            <div class="text-fild">
+                                @Html.ValidationMessageFor(c => c.NomeUsuario, "", new { @class = "text-danger" })
+                                @Html.TextBoxFor(c => c.NomeUsuario, new { @class = "txtBox", placeholder = "Nome" })
+
+                            </div>
+                            <div class="text-fild">
+
+                                @Html.ValidationMessageFor(c => c.Email, "", new { @class = "text-danger" })
+                                @Html.TextBoxFor(c => c.Email, new { @class = "txtBox", placeholder = "Email" })
+
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="msg-fild">
+                            @Html.ValidationMessageFor(c => c.Asunto, "", new { @class = "text-danger" })
+                            @Html.TextBoxFor(c => c.Asunto, new { @class = "txtBox", placeholder = "Assunto" })
+                        </div>
+                        <div class="message-fild">
+                            @Html.ValidationMessageFor(c => c.Mensagem, "", new { @class = "text-danger" })
+                            @Html.TextAreaFor(c => c.Mensagem, new { @class = "txtBox", placeholder = "Mensagem" })
+
+
+                        </div>
+                        <label class="btn1 btn-8 btn-8c"><input type="submit" value="Enviar"></label>
+                    }
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="map">              
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3688.1466522001633!2d-43.13613398543147!3d-22.423505426440883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x99abccc555924d%3A0x1601800f1b26f879!2sEstr.+Uni%C3%A3o+e+Ind%C3%BAstria%2C+6910%2C+Petr%C3%B3polis+-+RJ!5e0!3m2!1spt-BR!2sbr!4v1446573574145"  frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
+        @Html.Partial("_Rodape")
+    </div>
+</div>
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

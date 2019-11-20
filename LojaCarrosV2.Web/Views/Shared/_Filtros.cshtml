@@ -1,0 +1,49 @@
+﻿<div class="filtros">
+    <div class="container">
+        <div class="col-md-10 dropdown-buttons">
+
+            <div class="col-md-4 dropdown-button">
+                <div class="section_room">
+                    <select name="tipo" id="tipo" class="frm-field" required>
+                        <option value="0"> - TIPO - </option>
+                        @foreach (var item in ViewBag.Tipo)
+                        {
+                            <option value="@item.Nome">@item.Nome</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4 dropdown-button">
+                <div class="section_room">
+                    <select name="marca" id="marca" class="frm-field">
+                        <option value="0"> - MARCA - </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-2 dropdown-button">
+                <div class="section_room">
+                    <select name="anoInicio" id="anoInicio" class="frm-fiel">
+                        <option value=""> - ANO DE - </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2 dropdown-button">
+                <div class="section_room">
+                    <select name="anoFim" id="anoFim" class="frm-fiel">
+                        <option value=""> - ATE ANO - </option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-2 submit_button">
+
+            <input type="submit" value="Buscar" id="btnBuscar">
+
+        </div>
+
+        <div class="clearfix"> </div>
+    </div>
+</div>

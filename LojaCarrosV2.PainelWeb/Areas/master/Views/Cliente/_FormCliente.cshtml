@@ -1,0 +1,103 @@
+﻿@model LojaCarrosV2.PainelWeb.Models.ClienteVM
+@using LojaCarrosV2.Utilidade
+
+<div class="form-horizontal">
+
+    @using (Html.BeginForm("Cadastro", "Cliente", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.IdCliente)
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-md-7">
+
+                <div class="form-group">
+                    <label class="control-label col-md-3"> @Html.LabelFor(u => u.IdEmpresa)</label>
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(model => model.IdEmpresa, new SelectList(ViewBag.Empresa, "IdEmpresa", "Nome", ViewBag.Empresa = Model.IdEmpresa), "-Selecione-", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(c => c.IdEmpresa, "", new { @class = "text-danger" })<div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3"> @Html.LabelFor(u => u.Nome)</label>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(u => u.Nome, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(c => c.Nome, "", new { @class = "text-danger" })<div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3"> @Html.LabelFor(u => u.Telefone1)</label>
+                    <div class="col-md-9">
+
+                        @Html.TextBoxFor(u => u.Telefone1, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(c => c.Telefone1, "", new { @class = "text-danger" })<div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3"> @Html.LabelFor(u => u.Telefone2)</label>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(u => u.Telefone2, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(c => c.Telefone2, "", new { @class = "text-danger" })<div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3"> @Html.LabelFor(u => u.Email)</label>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(u => u.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(c => c.Email, "", new { @class = "text-danger" })<div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3"> @Html.LabelFor(u => u.CEP)</label>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(u => u.CEP, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(c => c.CEP, "", new { @class = "text-danger" })<div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3"> @Html.LabelFor(u => u.Logradouro)</label>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(u => u.Logradouro, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(c => c.Logradouro, "", new { @class = "text-danger" })<div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3"> @Html.LabelFor(u => u.Bairro)</label>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(u => u.Bairro, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(c => c.Bairro, "", new { @class = "text-danger" })<div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3"> @Html.LabelFor(u => u.Cidade)</label>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(u => u.Cidade, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(c => c.Cidade, "", new { @class = "text-danger" })<div class="clearfix"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(model => model.Estado, new SelectList(ViewBag.Estado, "UF", "UF", ViewBag.Estado = Model.Estado), "-UF-", new { @class = "form-control", @style = "width:75px" })
+                        @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <hr />
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-1 col-md-11">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+
+                @Html.LinkVoltar("Voltar")
+
+            </div>
+        </div>
+    }
+</div>
+
+

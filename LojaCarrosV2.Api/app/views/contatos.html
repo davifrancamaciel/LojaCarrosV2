@@ -1,0 +1,57 @@
+﻿<div class="jumbotron">
+
+    <!--<h4 ng-bind="app"></h4>-->
+    <h4>{{app}}</h4>
+    <a href="#/novocontato" class="btn btn-primary btn-block">novo contato</a>
+    <!--<input type="text" ng-model="error" />-->
+    <ui-alert title="Ops, aconteceu um problema!">
+        aconteceu um erro
+    </ui-alert>
+    <ui-accordions>
+        <ui-accordion title="Accordion 1">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </ui-accordion>
+
+        <ui-accordion title="Accordion 2">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </ui-accordion>
+
+        <ui-accordion title="Accordion 3">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </ui-accordion>
+
+        <ui-accordion title="Accordion 4">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </ui-accordion>
+
+        <ui-accordion title="Accordion 5">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </ui-accordion>
+    </ui-accordions>
+    <input type="text" class="form-control" ng-model="criterioDeBusca" placeholder="Buscar..." />
+    <!--{{contatos}}-->
+    <table class="table table-striped " ng-show="contatos.length > 0">
+        <tr>
+            <th></th>
+
+            <th class="text-center"><a href="" ng-click="ordenarPor('modelo')"> Modelo</a></th>
+            <th class="text-center"><a href="" ng-click="ordenarPor('anoFabricacao')">Ano Fabricacao</a></th>
+            <th class="text-center">Marca</th>
+            <th>Data</th>
+        </tr>
+        <!--<tr ng-class="{selecionado:contato.selecionado ,negrito:contato.selecionado}" ng-repeat="contato in contatos | filter:{nome:criterioDeBusca}">-->
+        <!--<tr ng-class="{selecionado:contato.selecionado ,negrito:contato.selecionado}" ng-repeat="contato in contatos | filter:criterioDeBusca | orderBy:'+nome'">-->
+        <!--<tr ng-class="{selecionado:contato.selecionado ,negrito:contato.selecionado}" ng-repeat="contato in contatos | limitTo:2| filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">-->
+        <tr ng-class="{selecionado:contato.selecionado ,negrito:contato.selecionado}" ng-repeat="contato in contatos | limitTo:5 | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+            <td><input type="checkbox" ng-model="contato.selecionado" /></td>
+            <td><a href="#/detalhescontato/{{contato.idVeiculo}}">{{contato.modelo | name }}</a></td>
+            <td>{{contato.anoFabricacao}}</td>
+            <td>{{contato.marca.nome}}</td>
+            <td>{{contato.dataCadastro|date:"dd/MM/yyyy"}}</td>
+            <td>{{contato.serial}}</td>
+        </tr>
+    </table>
+    <br />
+
+
+</div>

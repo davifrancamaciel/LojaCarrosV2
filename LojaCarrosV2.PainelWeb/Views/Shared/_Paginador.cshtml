@@ -1,0 +1,11 @@
+﻿@using PagedList
+@using PagedList.Mvc
+<div class="text-center">
+    @Html.PagedListPager((IPagedList)Model, pagina => Url.Action(ViewBag.Action, new {
+    q = ViewBag.Query,
+    idEmpresa= ViewBag.idEmpresa,
+    pagina = pagina,
+    so = ViewBag.SortOrder,
+    cs = ViewBag.CurrentSort,
+    pt = ViewBag.PaginaTamanho }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+</div>
